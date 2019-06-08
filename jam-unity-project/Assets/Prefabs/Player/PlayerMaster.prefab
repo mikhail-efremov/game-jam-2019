@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 5461252792609706532}
   - component: {fileID: 3008154508264764022}
   - component: {fileID: 6194018757294278604}
-  - component: {fileID: 831178191410701785}
   m_Layer: 0
   m_Name: BigPlayer
   m_TagString: Untagged
@@ -381,25 +380,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!95 &831178191410701785
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3603399274429653006}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d3503976bb8df841bd30338fb58a392, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4882479297685051842
 GameObject:
   m_ObjectHideFlags: 0

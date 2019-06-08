@@ -56,37 +56,36 @@ namespace UnityTemplateProjects
 
     private void FixedUpdate()
     {
-      if (!CanControll)
-        return;
-      
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
-      
+
       var action = false;
-      
-      if (Role == PlayerRole.Fix)
-        action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);        
-      if (Role == PlayerRole.Shoot)
+
+      if (Role == PlayerRole.Fix && Input.GetKey("z"))
+        action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);
+      if (Role == PlayerRole.Shoot && Input.GetKey("x"))
         action = GamePad.GetButton(GamePad.Button.Start, _gamePadMap[_playerIndex]);
-              
+
       if (Role == PlayerRole.Big)
       {
         if (_playerIndex == PlayerIndex.One)
         {
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
-          
+
           action = GamePad.GetButton(GamePad.Button.Start, GamePad.Index.One)
-            || GamePad.GetButton(GamePad.Button.Back, GamePad.Index.One);
+                   || GamePad.GetButton(GamePad.Button.Back, GamePad.Index.One)
+                   || Input.GetKey("z");
         }
 
         if (_playerIndex == PlayerIndex.Three)
         {
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
-          
+
           action = GamePad.GetButton(GamePad.Button.Back, GamePad.Index.Two)
-            || GamePad.GetButton(GamePad.Button.Start, GamePad.Index.Two);
+                   || GamePad.GetButton(GamePad.Button.Start, GamePad.Index.Two)
+                   || Input.GetKey("x");
         }
 
         Mathf.Clamp01(MoveHorizontal);
@@ -98,30 +97,32 @@ namespace UnityTemplateProjects
         _fixer.StartFixing();
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
-      {     
+      {
         _fixer.StopFixing();
       }
 
+
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
-        if (Time.time > _nextUse)
-        {
-          _nextUse = Time.time + UseRate;
-
-          _fight.Hold();
-          _fight.Throw();
-        }
+        _fight.Hold();
+      }
+      else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
+      {
+        _fight.Throw();
       }
 
       if (!CanControll)
         return;
-      
+
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
       var rigid = GetComponent<Rigidbody>();
 
-      rigid.velocity = movement * _speed;
-      
-      var rot = transform.rotation; 
+      if (CanControll)
+        rigid.velocity = movement * _speed;
+      else
+        rigid.velocity = Vector3.zero;
+
+      var rot = transform.rotation;
       rot.eulerAngles = Vector3.zero;
     }
 
