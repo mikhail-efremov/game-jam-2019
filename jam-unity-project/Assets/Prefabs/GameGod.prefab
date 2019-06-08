@@ -47,31 +47,31 @@ MonoBehaviour:
   Actions:
   - Type: 0
     Side: 0
-    Seccond: 1
+    Seccond: 4
     BompTimeout: 0
   - Type: 0
     Side: 0
-    Seccond: 1
+    Seccond: 4
     BompTimeout: 0
   - Type: 0
     Side: 1
-    Seccond: 1
+    Seccond: 4
     BompTimeout: 0
   - Type: 0
     Side: 0
-    Seccond: 2
+    Seccond: 5
     BompTimeout: 0
   - Type: 0
     Side: 0
-    Seccond: 3
+    Seccond: 6
     BompTimeout: 0
   - Type: 0
     Side: 0
-    Seccond: 3
+    Seccond: 6
     BompTimeout: 0
   - Type: 0
     Side: 2
-    Seccond: 3
+    Seccond: 6
     BompTimeout: 0
   MaxSideHealth: 10
   EvilMan: {fileID: 0}

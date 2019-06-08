@@ -34,6 +34,8 @@ namespace UnityTemplateProjects
 
       _leftSideHealth = MaxSideHealth;
       _rightSideHealth = MaxSideHealth;
+
+      EvilMan = FindObjectOfType<EvilMan>();
     }
 
     private void Update()
