@@ -307,8 +307,8 @@ InputManager:
     snap: 1
     invert: 0
     type: 0
-    axis: 0
-    joyNum: 2
+    axis: 1
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Vertical_P2
     descriptiveName: 
@@ -323,8 +323,8 @@ InputManager:
     snap: 1
     invert: 0
     type: 0
-    axis: 0
-    joyNum: 2
+    axis: 1
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal_P2
     descriptiveName: 

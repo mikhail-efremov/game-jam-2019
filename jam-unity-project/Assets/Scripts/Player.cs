@@ -61,27 +61,40 @@ namespace UnityTemplateProjects
         Debug.LogError("USE SHIIIT");
         _fight.Throw();
       }
+      
+      ///////////////////SPLIT
+      
+      
+      
+      ///////////////////
 
       if (!CanControll)
         return;
 
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
-
+/*
       // The step size is equal to speed times frame time.
-      float step = 5 * Time.deltaTime;
+      float step = 500000 * Time.deltaTime;
       var vector = Quaternion.AngleAxis(90, Vector3.up) * rigid.velocity;
 
       var newDir = Vector3.RotateTowards(transform.forward, vector, step, 0.0f);
 
       // Move our position a step closer to the target.
-      rigid.rotation = Quaternion.LookRotation(newDir);
+      rigid.rotation = Quaternion.LookRotation(newDir);*/
+      
+      var rot = transform.rotation; 
+      rot.eulerAngles = Vector3.zero;
     }
 
-    private Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =
+    public void Split()
+    {
+      
+    }
+
+    private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =
       new Dictionary<PlayerIndex, Dictionary<Controll, string>>
       {
         {

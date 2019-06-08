@@ -224,6 +224,61 @@ PrefabInstance:
       propertyPath: _playerIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8854023829872235019, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_Name
+      value: SecondBigPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854023829872235019, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7775594192026861783, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_Name
+      value: FirstBigPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451438218941559588, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: _playerIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 525701379807782870, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620188542088705290, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321850748574467887, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: _playerIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 944480841956780574, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030211017157654722, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706847159283071869, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: _playerIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794033500234803617, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: _playerIndex
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3489089575432036941, guid: 05770a85392eebe4caaefe8dcf912dfc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05770a85392eebe4caaefe8dcf912dfc, type: 3}
