@@ -19,6 +19,9 @@ public class PlayerMaster : MonoBehaviour
   public Player FixPlayer;
   public Player FightPlayer;
 
+  public AudioClip SplitAudio;
+  public AudioClip BombThrowAudio;
+
   private void Awake()
   {
     BigPlayer.Role = PlayerRole.Big;
@@ -52,6 +55,10 @@ public class PlayerMaster : MonoBehaviour
 
     var splitEffect = Instantiate(SplitEffect, BigPlayer.transform.position, Quaternion.identity);
     splitEffect.SetActive(true);
+
+    var splitAudioSource = gameObject.AddComponent<AudioSource>();
+    splitAudioSource.clip = SplitAudio;
+    splitAudioSource.Play();
     yield return new WaitForSeconds(0.4f);
 
     var tiles = Map.Instance.GetMyTiles(BigPlayer._playerIndex);
@@ -99,6 +106,8 @@ public class PlayerMaster : MonoBehaviour
 
     Debug.LogError("SPLIT!");
     BigPlayer.ReleaseMovement();
+    
+    Destroy(splitAudioSource);
   }
 
   public void GetTogether()

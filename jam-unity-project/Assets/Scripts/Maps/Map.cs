@@ -17,6 +17,11 @@ namespace UnityTemplateProjects.Maps
     public GameObject FirstPlayerRoot;
     public GameObject SecondPlayerRoot;
 
+    public AudioClip BombThrowAudio;
+    public AudioClip BombDropAudio;
+    public AudioClip PickupAudio;
+    public AudioClip StepsAudio;
+
     public static Map Instance;
 
     public List<MapTile> BySide(Side side)

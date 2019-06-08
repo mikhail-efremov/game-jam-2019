@@ -98,3 +98,5 @@ MonoBehaviour:
   Magnitude: 2
   Roughness: 10
   FadeOutTime: 5
+  ExplosionAudio: {fileID: 8300000, guid: d8852f62143a1a341a997ecca5d4db4c, type: 3}
+  TickingAudio: {fileID: 8300000, guid: a5eef122843fd4a4fa6778b3aea9c1c4, type: 3}

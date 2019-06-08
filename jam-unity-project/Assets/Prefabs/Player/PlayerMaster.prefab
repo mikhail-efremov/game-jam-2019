@@ -248,6 +248,7 @@ MonoBehaviour:
     type: 3}
   FixPlayer: {fileID: 8212131966516389423}
   FightPlayer: {fileID: 7730941654741158049}
+  SplitAudio: {fileID: 8300000, guid: c58d1a1cabb349946b6ae95e7129e745, type: 3}
 --- !u!1 &3603399274429653006
 GameObject:
   m_ObjectHideFlags: 0

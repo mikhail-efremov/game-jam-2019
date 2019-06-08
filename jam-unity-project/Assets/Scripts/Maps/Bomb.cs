@@ -19,11 +19,21 @@ namespace UnityTemplateProjects.Maps
     public float Roughness = 10f;
     public float FadeOutTime = 5f;
 
+    public AudioClip ExplosionAudio;
+    public AudioClip TickingAudio;
+    
+    private AudioSource _explosionAudioSource;
+    private AudioSource _tickingAudioSource;
+
     public event Action Exploded;
 
     public void Awake()
     {
       CanExplode = true;
+      _explosionAudioSource = gameObject.AddComponent<AudioSource>();
+      _explosionAudioSource.clip = ExplosionAudio;
+      _tickingAudioSource = gameObject.AddComponent<AudioSource>();
+      _tickingAudioSource.clip = TickingAudio;
       // animation?
       StartCoroutine(Ticking());
     }
@@ -37,8 +47,11 @@ namespace UnityTemplateProjects.Maps
       yield return new WaitForSeconds(Timeout / 3.33f);
       moderate.Kill();
       var fast = transform.DOScale(1.5f, .1f).SetLoops(-1, LoopType.Yoyo);
+      
+      _tickingAudioSource.Play();
       yield return new WaitForSeconds(Timeout / 3.33f);
       fast.Kill();
+      _tickingAudioSource.Stop();
       // animation?
       //yield return new WaitForSeconds(1);
       // animation?
@@ -58,6 +71,8 @@ namespace UnityTemplateProjects.Maps
 
       ExplodeForTiles(ftiles);
       ExplodeForTiles(stiles);
+      
+      _explosionAudioSource.Play();
 
       StartCoroutine(Effect());
       
@@ -68,6 +83,7 @@ namespace UnityTemplateProjects.Maps
     {
       var explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
       yield return new WaitForSeconds(2);
+      _explosionAudioSource.Stop();
       Destroy(explosion);
       Destroy(gameObject);
     }

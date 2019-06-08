@@ -1065,6 +1065,10 @@ MonoBehaviour:
   RightPlayer: []
   FirstPlayerRoot: {fileID: 4853179192264609155}
   SecondPlayerRoot: {fileID: 4135054450864852000}
+  BombThrowAudio: {fileID: 8300000, guid: 518ecdf54416c0c4da9372cd4458122d, type: 3}
+  BombDropAudio: {fileID: 8300000, guid: 518058e87eb0fa34bb46ccb5d349616f, type: 3}
+  PickupAudio: {fileID: 8300000, guid: 58aa118876274494da04c2ab43965682, type: 3}
+  StepsAudio: {fileID: 8300000, guid: 25dab7476557b1f4dbfecf858b314c02, type: 3}
 --- !u!65 &7758976435304599282
 BoxCollider:
   m_ObjectHideFlags: 0

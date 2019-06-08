@@ -49,6 +49,8 @@ namespace UnityTemplateProjects
     [SerializeField] private float _speed = 5;
     [SerializeField] public PlayerIndex _playerIndex;
 
+    private AudioSource _stepsAudioSource;
+
     private void Awake()
     {
       _fight = new Fight(this);
@@ -56,6 +58,10 @@ namespace UnityTemplateProjects
       _fixer.Init(this);
 
       _animator = GetComponentInChildren<Animator>();
+
+      _stepsAudioSource = gameObject.AddComponent<AudioSource>();
+      _stepsAudioSource.clip = Map.Instance.StepsAudio;
+      _stepsAudioSource.loop = true;
     }
 
     private void FixedUpdate()
@@ -123,9 +129,13 @@ namespace UnityTemplateProjects
       if (movement != Vector3.zero)
       {
         _animator.SetBool("Run", true);
+        if (!_stepsAudioSource.isPlaying)
+          _stepsAudioSource.Play();
       }
       else
       {
+        if (_stepsAudioSource.isPlaying)
+          _stepsAudioSource.Stop();
         _animator.SetBool("Run", false);
       }
 

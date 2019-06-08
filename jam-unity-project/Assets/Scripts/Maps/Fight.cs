@@ -36,6 +36,10 @@ namespace UnityTemplateProjects.Maps
       _bomb.Exploded += BombOnExploded;
       IsHolding = true;
       _player.BlockMovement();
+
+      var splitAudioSource = _player.gameObject.AddComponent<AudioSource>();
+      splitAudioSource.clip = Map.Instance.PickupAudio;
+      splitAudioSource.Play();
       
       var position = _player.transform.position;
       position.y += 1;
@@ -53,6 +57,10 @@ namespace UnityTemplateProjects.Maps
       if (!IsHolding)
         return;
       
+      var splitAudioSource = _player.gameObject.AddComponent<AudioSource>();
+      splitAudioSource.clip = Map.Instance.BombThrowAudio;
+      splitAudioSource.Play();
+      
       IsHolding = false;
       _player.ReleaseMovement();
 
@@ -68,19 +76,17 @@ namespace UnityTemplateProjects.Maps
 
       var targetPos = selectedTile.transform.position;
       targetPos.y += 1;
-//      bomb.transform.DOMoveX(targetPos.x, 1f)
-//        .SetEase(Ease.InOutExpo)
-//        .OnComplete(() => { bomb.GetComponent<Bomb>().StartTicking(); });
-//      
-//      bomb.transform.DOMoveX(targetPos.x, 1f)
-//        .SetEase(Ease.InOutExpo)
-//        .OnComplete(() => { bomb.GetComponent<Bomb>().StartTicking(); });
-
 
       _bomb.transform.DOJump(targetPos, 4f, 1, 0.74f)
         .SetEase(Ease.OutCirc)
         .OnStart(() => { _bomb.CanExplode = false; })
-        .OnComplete(() => { _bomb.CanExplode = true; });
+        .OnComplete(() =>
+        {
+          _bomb.CanExplode = true;
+          var splitAudioSource2 = _player.gameObject.AddComponent<AudioSource>();
+          splitAudioSource2.clip = Map.Instance.BombDropAudio;
+          splitAudioSource2.Play();
+        });
     }
   }
 }
