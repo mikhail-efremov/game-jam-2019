@@ -10,18 +10,18 @@ namespace UnityTemplateProjects.Maps
   public class Bomb : MonoBehaviour
   {
     public GameObject Explosion;
-    
+
     public bool CanExplode;
     public float Radius;
     public float Timeout;
-    
+
     public float Magnitude = 2f;
     public float Roughness = 10f;
     public float FadeOutTime = 5f;
 
     public AudioClip ExplosionAudio;
     public AudioClip TickingAudio;
-    
+
     private AudioSource _explosionAudioSource;
     private AudioSource _tickingAudioSource;
 
@@ -47,7 +47,7 @@ namespace UnityTemplateProjects.Maps
       yield return new WaitForSeconds(Timeout / 3.33f);
       moderate.Kill();
       var fast = transform.DOScale(1.5f, .1f).SetLoops(-1, LoopType.Yoyo);
-      
+
       _tickingAudioSource.Play();
       yield return new WaitForSeconds(Timeout / 3.33f);
       fast.Kill();
@@ -60,7 +60,7 @@ namespace UnityTemplateProjects.Maps
         yield return new WaitForSeconds(0.2f);
 
       Exploded?.Invoke();
-      
+
       Explode();
     }
 
@@ -72,10 +72,10 @@ namespace UnityTemplateProjects.Maps
       ExplodeForTiles(ftiles, Side.Left);
       ExplodeForTiles(stiles, Side.Right);
 
-explosionAudioSource.Play();
+      _explosionAudioSource.Play();
 
       StartCoroutine(Effect());
-      
+
       CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
     }
 

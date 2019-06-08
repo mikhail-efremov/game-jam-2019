@@ -67,7 +67,11 @@ public class PlayerMaster : MonoBehaviour
     var fightPlayerPos = tiles[Random.Range(0, tiles.Count)].transform.position;
     fightPlayerPos.y = FightPlayer.transform.position.y;
 
-    var fixPlayerStartEffect = Instantiate(FixPlayerStartEffect, Vector3.zero, Quaternion.identity);
+    var startEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
+      ? FixPlayerStartEffect
+      : FightPlayerStartEffect;
+    
+    var fixPlayerStartEffect = Instantiate(startEffect, Vector3.zero, Quaternion.identity);
     var fixPlayerLineR = fixPlayerStartEffect.GetComponent<LineRenderer>();
     fixPlayerLineR.SetPositions(new[]
     {
@@ -75,7 +79,7 @@ public class PlayerMaster : MonoBehaviour
       BigPlayer.transform.position,
     });
 
-    var fightPlayerStartEffect = Instantiate(FightPlayerStartEffect, Vector3.zero, Quaternion.identity);
+    var fightPlayerStartEffect = Instantiate(startEffect, Vector3.zero, Quaternion.identity);
     var fightPlayerLineR = fightPlayerStartEffect.GetComponent<LineRenderer>();
     fightPlayerLineR.SetPositions(new[]
     {
@@ -84,9 +88,13 @@ public class PlayerMaster : MonoBehaviour
     });
 
     yield return new WaitForSeconds(0.25f);
+    
+    var endEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
+      ? FixPlayerEndEffect
+      : FightPlayerEndEffect;
 
-    var fixPlayerEndEffect = Instantiate(FixPlayerEndEffect, fixPlayerPos, Quaternion.identity);
-    var fightPlayerEndEffect = Instantiate(FightPlayerEndEffect, fightPlayerPos, Quaternion.identity);
+    var fixPlayerEndEffect = Instantiate(endEffect, fixPlayerPos, Quaternion.identity);
+    var fightPlayerEndEffect = Instantiate(endEffect, fightPlayerPos, Quaternion.identity);
 
     yield return new WaitForSeconds(0.2f);
 
