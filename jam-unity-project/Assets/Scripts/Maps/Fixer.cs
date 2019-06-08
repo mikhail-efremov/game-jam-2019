@@ -9,6 +9,8 @@ namespace UnityTemplateProjects.Maps
     public bool CanFix;
     public bool IsFixing;
 
+    private Side _mySide;
+
     private MapTile _mapTile;
     private Player _player;
 
@@ -17,8 +19,10 @@ namespace UnityTemplateProjects.Maps
       _player = player;
     }
 
-    public void StartFixing()
+    public void StartFixing(Side side)
     {
+      _mySide = side;
+      
       // start animation
       var opponentTiles = Map.Instance.GetMyTiles(_player._playerIndex);
       var broken = opponentTiles.Where(t => t.IsBroken).ToList();
@@ -48,6 +52,10 @@ namespace UnityTemplateProjects.Maps
       
       _mapTile.Repair();
 
+      var god = GameGod.Instance;
+      var cur = god.GetHealthBySide(_mySide);
+      god.SetHealthBySide(_mySide, cur + 1);
+      
       IsFixing = false;
     }
 

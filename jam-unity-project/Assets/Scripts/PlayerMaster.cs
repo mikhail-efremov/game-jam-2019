@@ -24,10 +24,10 @@ public class PlayerMaster : MonoBehaviour
 
   private void Awake()
   {
-    BigPlayer.Role = PlayerRole.Big;
+    BigPlayer.Init(Side, PlayerRole.Big);
 
-    FixPlayer.Role = PlayerRole.Fix;
-    FightPlayer.Role = PlayerRole.Shoot;
+    FixPlayer.Init(Side, PlayerRole.Fix);
+    FightPlayer.Init(Side, PlayerRole.Shoot);
   }
 
   private void Update()

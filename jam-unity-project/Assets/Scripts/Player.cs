@@ -43,6 +43,7 @@ namespace UnityTemplateProjects
     private Animator _animator;
 
     public PlayerRole Role;
+    public Side Side;
 
     public bool CanControll = true;
 
@@ -50,6 +51,12 @@ namespace UnityTemplateProjects
     [SerializeField] public PlayerIndex _playerIndex;
 
     private AudioSource _stepsAudioSource;
+	
+    public void Init(Side side, PlayerRole role)
+    {
+      Role = role;
+      Side = side;
+    }
 
     private void Awake()
     {
@@ -104,7 +111,7 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        _fixer.StartFixing();
+        _fixer.StartFixing(Side);
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
