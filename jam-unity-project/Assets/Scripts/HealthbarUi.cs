@@ -13,11 +13,11 @@ public class HealthbarUi : MonoBehaviour
 
   void Update()
   {
-    var max = GameGod.Instance.MaximumBullets;
-    var cur = GameGod.Instance.CurrentBullets;
+//    var max = GameGod.Instance.MaximumBullets;
+  //  var cur = GameGod.Instance.CurrentBullets;
     
-    var value = ((float)cur / max);
+    //var value = ((float)cur / max);
     
-    _image.fillAmount = value;
+    //_image.fillAmount = value;
   }
 }
