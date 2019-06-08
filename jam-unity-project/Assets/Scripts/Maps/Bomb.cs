@@ -69,10 +69,10 @@ namespace UnityTemplateProjects.Maps
       var ftiles = Map.Instance.LeftPlayer;
       var stiles = Map.Instance.RightPlayer;
 
-      ExplodeForTiles(ftiles);
-      ExplodeForTiles(stiles);
-      
-      _explosionAudioSource.Play();
+      ExplodeForTiles(ftiles, Side.Left);
+      ExplodeForTiles(stiles, Side.Right);
+
+explosionAudioSource.Play();
 
       StartCoroutine(Effect());
       
@@ -88,7 +88,7 @@ namespace UnityTemplateProjects.Maps
       Destroy(gameObject);
     }
 
-    private void ExplodeForTiles(List<MapTile> tiles)
+    private void ExplodeForTiles(List<MapTile> tiles, Side side)
     {
       foreach (var tile in tiles)
       {
@@ -97,6 +97,9 @@ namespace UnityTemplateProjects.Maps
         if (distance < Radius)
         {
           tile.Break();
+
+          var baseHealth = GameGod.Instance.GetHealthBySide(side);
+          GameGod.Instance.SetHealthBySide(side, baseHealth - 1);
         }
       }
 

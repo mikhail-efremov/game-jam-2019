@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3761739002827240667}
   - component: {fileID: 2270968182204369351}
   m_Layer: 0
-  m_Name: Char01_Game
+  m_Name: Char01_Game_Small
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d438660472de0e74d9e4ae527ad7295b, type: 2}
+  - {fileID: 2100000, guid: 82f7c89cbabacf0468b9ec42d6e6caab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

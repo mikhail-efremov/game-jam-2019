@@ -11,6 +11,8 @@ namespace UnityTemplateProjects
   {
     private static GameGod _instance;
     public static GameGod Instance => _instance;
+
+    public bool IsGameOver;
         
     public List<TimeBasedAction> Actions = new List<TimeBasedAction>();
 
@@ -23,10 +25,12 @@ namespace UnityTemplateProjects
        
     private void Awake()
     {
+      IsGameOver = false;
       _instance = this;
       DontDestroyOnLoad(gameObject);
 
       _leftSideHealth = MaxSideHealth;
+      _rightSideHealth = MaxSideHealth;
     }
 
     private void Update()
@@ -35,10 +39,8 @@ namespace UnityTemplateProjects
       
       if (_lastSeccond == seccond)
         return;
+      
       _lastSeccond = seccond;
-
-//      Debug.LogError(seccond);
-
       var actions = Actions.Where(x => x.Seccond == seccond);
       foreach (var action in actions)
       {
@@ -49,6 +51,14 @@ namespace UnityTemplateProjects
     public int GetHealthBySide(Side side)
     {
       return side == Side.Left ? _leftSideHealth : _rightSideHealth;
+    }
+
+    public void SetHealthBySide(Side side, int value)
+    {
+      if (side == Side.Left)
+        _leftSideHealth = value;
+      else
+        _rightSideHealth = value;
     }
 
     private Side _lastBombSide = Side.Left;
