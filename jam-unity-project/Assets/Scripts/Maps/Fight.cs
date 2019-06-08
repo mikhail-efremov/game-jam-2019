@@ -6,8 +6,10 @@ namespace UnityTemplateProjects.Maps
 {
   public class Fight
   {
-    Random _rnd = new Random();
+    public bool IsHolding;
+
     private Player _player;
+    private Bomb _bomb;
 
     public Fight(Player player)
     {
@@ -16,11 +18,32 @@ namespace UnityTemplateProjects.Maps
 
     public void Hold()
     {
+      var existingBombs = Object.FindObjectsOfType<Bomb>();
+      if (existingBombs == null || existingBombs.Length == 0)
+        return;
+
+      var nearestBomb = existingBombs.OrderBy(b => Helper.Distance(b.transform.position, _player.transform.position)).FirstOrDefault();
+      if (nearestBomb == null)
+        return;
+
+      if (Helper.Distance(nearestBomb.transform.position, _player.transform.position) > Map.Instance.PickUpDistance)
+        return;
+
+      _bomb = nearestBomb.GetComponent<Bomb>();
+      IsHolding = true;
       _player.BlockMovement();
+      
+      var position = _player.transform.position;
+      position.y += 1;
+      _bomb.transform.position = position;
     }
 
     public void Throw()
     {
+      if (!IsHolding)
+        return;
+      
+      IsHolding = false;
       _player.ReleaseMovement();
 
       var targetTiles = Map.Instance.GetOpponentTiles(_player._playerIndex);
@@ -33,13 +56,6 @@ namespace UnityTemplateProjects.Maps
       var rndNumber = Random.Range(0, targetTilesNotDamaged.Count);
 
       var selectedTile = targetTilesNotDamaged[rndNumber];
-      var position = _player.transform.position; //selectedTile.transform.position;
-
-      position.y += 1;
-
-      var bomb = Object.Instantiate(Map.Instance.Bomb);
-      bomb.transform.position = position;
-
 
       var targetPos = selectedTile.transform.position;
       targetPos.y += 1;
@@ -51,10 +67,11 @@ namespace UnityTemplateProjects.Maps
 //        .SetEase(Ease.InOutExpo)
 //        .OnComplete(() => { bomb.GetComponent<Bomb>().StartTicking(); });
 
-      bomb.transform.DOJump(targetPos, 4f, 1, 0.7f)
+
+      _bomb.transform.DOJump(targetPos, 4f, 1, 0.74f)
         .SetEase(Ease.OutCirc)
-        .OnComplete(() => { bomb.GetComponent<Bomb>().StartTicking(); });
-      
+        .OnStart(() => { _bomb.CanExplode = false; })
+        .OnComplete(() => { _bomb.CanExplode = true; });
     }
   }
 }

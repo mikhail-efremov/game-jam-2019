@@ -1,33 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
 {
   public class Bomb : MonoBehaviour
   {
+    public bool CanExplode;
     public float Radius;
     public float Timeout;
 
     public void Awake()
     {
       // animation?
-      
-    }
-
-
-    public void StartTicking()
-    {
       StartCoroutine(Ticking());
     }
 
     public IEnumerator Ticking()
-    {
-      yield return new WaitForSeconds(1);
+    {var slow = transform.DOPunchScale(new Vector3(1, 1, 1),3f).SetLoops(-1, LoopType.Yoyo);
+      yield return new WaitForSeconds(Timeout / 3.33f);
+      slow.Kill();
+      var moderate = transform.DOPunchScale(new Vector3(1, 1, 1),2f).SetLoops(-1, LoopType.Yoyo);
+      yield return new WaitForSeconds(Timeout / 3.33f);
+      moderate.Kill();
+      var fast = transform.DOPunchScale(new Vector3(1, 1, 1),2f).SetLoops(-1, LoopType.Yoyo);
+      yield return new WaitForSeconds(Timeout / 3.33f);
+      fast.Kill();
       // animation?
       //yield return new WaitForSeconds(1);
       // animation?
 
+      while(!CanExplode)
+        yield return new WaitForSeconds(0.2f);
+      
       Explode();
     }
 

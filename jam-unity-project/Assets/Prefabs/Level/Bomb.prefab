@@ -90,5 +90,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e137f735ce473bbfb6d17b00b58135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanExplode: 0
   Radius: 0.5
-  Timeout: 2
+  Timeout: 5

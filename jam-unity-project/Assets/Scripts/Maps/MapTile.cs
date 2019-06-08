@@ -27,10 +27,6 @@ namespace UnityTemplateProjects.Maps
       // animation?
     }
 
-    public float DistanceToPlayer(Vector3 position)
-    {
-      var tilePos = transform.position;
-      return Vector2.Distance(new Vector2(position.x, position.z), new Vector2(tilePos.x, tilePos.z));
-    }
+    
   }
 }

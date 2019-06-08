@@ -19,9 +19,16 @@ namespace UnityTemplateProjects.Maps
 
     public void StartFixing()
     {
+      // start animation
       var opponentTiles = Map.Instance.GetMyTiles(_player._playerIndex);
       var broken = opponentTiles.Where(t => t.IsBroken).ToList();
-      var closest = broken.OrderBy(m => m.DistanceToPlayer(transform.position)).FirstOrDefault();
+      var closest = broken.OrderBy(m => Helper.Distance(transform.position, m.transform.position)).FirstOrDefault();
+
+      if (closest == null)
+        return;
+      
+      if (Helper.Distance(closest.transform.position, _player.transform.position) > Map.Instance.FixDistance)
+        return;
       
       _mapTile = closest;
       // animation?
@@ -46,6 +53,7 @@ namespace UnityTemplateProjects.Maps
 
     public void StopFixing()
     {
+      // stop animation
       if (IsFixing)
       {
         StopCoroutine("Fixing");
