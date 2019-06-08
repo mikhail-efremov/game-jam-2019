@@ -43,14 +43,14 @@ public class EvilMan : MonoBehaviour
     _animator.SetBool("ActionLeft", false);    
     _animator.SetBool("End", true);
     
-    yield return new WaitForSeconds(1f);
+    yield return new WaitForSeconds(2f);
     
     Debug.LogError("reset");
     
     _animator.SetBool("End", false);
     _animator.SetBool("Reset", true);
 
-    yield return new WaitForSeconds(.2f);
+    yield return new WaitForSeconds(.1f);
 
     _animator.SetBool("Reset", false);
     _animator.SetBool("Idle", true);
