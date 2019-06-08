@@ -96,8 +96,7 @@ public class PlayerMaster : MonoBehaviour
     Destroy(fixPlayerEndEffect);
     Destroy(fightPlayerEndEffect);
     Destroy(splitEffect);
-
-    Debug.LogError("SPLIT!");
+    
     BigPlayer.ReleaseMovement();
   }
 
@@ -113,7 +112,5 @@ public class PlayerMaster : MonoBehaviour
 
     FixPlayer.gameObject.SetActive(false);
     FightPlayer.gameObject.SetActive(false);
-
-    Debug.LogError("GET TOGETHER!");
   }
 }
