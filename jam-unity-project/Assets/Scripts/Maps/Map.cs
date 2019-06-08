@@ -6,6 +6,8 @@ namespace UnityTemplateProjects.Maps
 {
   public class Map : MonoBehaviour
   {
+    public GameObject Bomb;
+    
     public List<Tile> FirstPlayer;
     public List<Tile> SecondPlayer;
 
