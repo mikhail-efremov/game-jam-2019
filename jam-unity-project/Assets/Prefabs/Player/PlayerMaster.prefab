@@ -249,7 +249,8 @@ MonoBehaviour:
   FixPlayer: {fileID: 8212131966516389423}
   FightPlayer: {fileID: 7730941654741158049}
   SplitAudio: {fileID: 8300000, guid: c58d1a1cabb349946b6ae95e7129e745, type: 3}
-  BombThrowAudio: {fileID: 0}
+  GetTogetherAudio: {fileID: 8300000, guid: 5407ca9254dd10e47982c42933f977c8, type: 3}
+  BombThrowAudio: {fileID: 8300000, guid: 518ecdf54416c0c4da9372cd4458122d, type: 3}
 --- !u!1 &3603399274429653006
 GameObject:
   m_ObjectHideFlags: 0

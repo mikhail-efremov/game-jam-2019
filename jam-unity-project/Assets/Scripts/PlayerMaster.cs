@@ -20,6 +20,7 @@ public class PlayerMaster : MonoBehaviour
   public Player FightPlayer;
 
   public AudioClip SplitAudio;
+  public AudioClip GetTogetherAudio;
   public AudioClip BombThrowAudio;
 
   private void Awake()
@@ -70,7 +71,7 @@ public class PlayerMaster : MonoBehaviour
     var startEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
       ? FixPlayerStartEffect
       : FightPlayerStartEffect;
-    
+
     var fixPlayerStartEffect = Instantiate(startEffect, Vector3.zero, Quaternion.identity);
     var fixPlayerLineR = fixPlayerStartEffect.GetComponent<LineRenderer>();
     fixPlayerLineR.SetPositions(new[]
@@ -88,7 +89,7 @@ public class PlayerMaster : MonoBehaviour
     });
 
     yield return new WaitForSeconds(0.25f);
-    
+
     var endEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
       ? FixPlayerEndEffect
       : FightPlayerEndEffect;
@@ -106,28 +107,83 @@ public class PlayerMaster : MonoBehaviour
     yield return new WaitForSeconds(0.1f);
     Destroy(fixPlayerStartEffect);
     Destroy(fightPlayerStartEffect);
-    
-    yield return new WaitForSeconds(2.1f);
+
+    yield return new WaitForSeconds(1.1f);
     Destroy(fixPlayerEndEffect);
     Destroy(fightPlayerEndEffect);
     Destroy(splitEffect);
-    
+
     BigPlayer.ReleaseMovement();
-    
+
     Destroy(splitAudioSource);
   }
 
   public void GetTogether()
   {
+    StartCoroutine(GetTogetherCo());
+  }
+
+  private IEnumerator GetTogetherCo()
+  {
+    FixPlayer.gameObject.SetActive(false);
+    FightPlayer.gameObject.SetActive(false);
+
     var newX = (FixPlayer.transform.position.x + FightPlayer.transform.position.x) / 2;
     var newY = BigPlayer.transform.position.y;
     var newZ = (FixPlayer.transform.position.z + FightPlayer.transform.position.z) / 2;
     var newPos = new Vector3(newX, newY, newZ);
 
+    var fixPlayerPos = FixPlayer.transform.position;
+    var fightPlayerPos = FightPlayer.transform.position;
+
+    var endEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
+        ? FixPlayerEndEffect
+        : FightPlayerEndEffect;
+
+    var fixPlayerEndEffect = Instantiate(endEffect, fixPlayerPos, Quaternion.identity);
+    var fightPlayerEndEffect = Instantiate(endEffect, fightPlayerPos, Quaternion.identity);
+
+    var splitAudioSource = gameObject.AddComponent<AudioSource>();
+    splitAudioSource.clip = GetTogetherAudio;
+    splitAudioSource.Play();
+    yield return new WaitForSeconds(0.2f);
+
+    var startEffect = BigPlayer._playerIndex == PlayerIndex.One || BigPlayer._playerIndex == PlayerIndex.Two
+        ? FixPlayerStartEffect
+        : FightPlayerStartEffect;
+
+    var fixPlayerStartEffect = Instantiate(startEffect, Vector3.zero, Quaternion.identity);
+    var fixPlayerLineR = fixPlayerStartEffect.GetComponent<LineRenderer>();
+    fixPlayerLineR.SetPositions(new[]
+    {
+      newPos,
+            fixPlayerPos,
+        });
+
+    var fightPlayerStartEffect = Instantiate(startEffect, Vector3.zero, Quaternion.identity);
+    var fightPlayerLineR = fightPlayerStartEffect.GetComponent<LineRenderer>();
+    fightPlayerLineR.SetPositions(new[]
+    {
+      newPos,
+      fightPlayerPos
+        });
+
+    yield return new WaitForSeconds(0.2f);
+
+    var splitEffect = Instantiate(SplitEffect, newPos, Quaternion.identity);
+    splitEffect.SetActive(true);
+
+    yield return new WaitForSeconds(0.2f);
+
     BigPlayer.transform.position = newPos;
     BigPlayer.gameObject.SetActive(true);
 
-    FixPlayer.gameObject.SetActive(false);
-    FightPlayer.gameObject.SetActive(false);
+    yield return new WaitForSeconds(2);
+
+    Destroy(splitEffect);
+    Destroy(fixPlayerEndEffect);
+    Destroy(fightPlayerEndEffect);
+    Destroy(fixPlayerLineR);
+    Destroy(fightPlayerLineR);
   }
 }
