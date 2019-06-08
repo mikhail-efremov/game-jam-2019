@@ -21,7 +21,6 @@ public class PlayerMaster : MonoBehaviour
 
   public AudioClip SplitAudio;
   public AudioClip GetTogetherAudio;
-  public AudioClip BombThrowAudio;
 
   private void Awake()
   {
@@ -183,7 +182,7 @@ public class PlayerMaster : MonoBehaviour
     Destroy(splitEffect);
     Destroy(fixPlayerEndEffect);
     Destroy(fightPlayerEndEffect);
-    Destroy(fixPlayerLineR);
-    Destroy(fightPlayerLineR);
+    Destroy(fixPlayerStartEffect);
+    Destroy(fightPlayerStartEffect);
   }
 }

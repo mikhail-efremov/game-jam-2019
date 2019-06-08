@@ -20,7 +20,7 @@ namespace UnityTemplateProjects.Maps
     {
       if (IsHolding)
         return;
-      
+
       var existingBombs = Object.FindObjectsOfType<Bomb>();
       if (existingBombs == null || existingBombs.Length == 0)
         return;
@@ -39,8 +39,9 @@ namespace UnityTemplateProjects.Maps
 
       var splitAudioSource = _player.gameObject.AddComponent<AudioSource>();
       splitAudioSource.clip = Map.Instance.PickupAudio;
+      splitAudioSource.playOnAwake = false;
       splitAudioSource.Play();
-      
+
       var position = _player.transform.position;
       position.y += 1;
       _bomb.transform.position = position;
@@ -56,11 +57,12 @@ namespace UnityTemplateProjects.Maps
     {
       if (!IsHolding)
         return;
-      
+
       var splitAudioSource = _player.gameObject.AddComponent<AudioSource>();
+      splitAudioSource.playOnAwake = false;
       splitAudioSource.clip = Map.Instance.BombThrowAudio;
       splitAudioSource.Play();
-      
+
       IsHolding = false;
       _player.ReleaseMovement();
 
