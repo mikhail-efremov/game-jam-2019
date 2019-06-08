@@ -67,7 +67,6 @@ namespace UnityTemplateProjects
 
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
 
-      Debug.LogError(movement);
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
