@@ -205,7 +205,7 @@ MonoBehaviour:
   MoveHorizontal: 0
   MoveVertical: 0
   CanControll: 1
-  _speed: 10
+  _speed: 5
   _playerIndex: 0
 --- !u!54 &7984533742279548194
 Rigidbody:
@@ -333,7 +333,7 @@ MonoBehaviour:
   MoveHorizontal: 0
   MoveVertical: 0
   CanControll: 1
-  _speed: 10
+  _speed: 5
   _playerIndex: 0
 --- !u!54 &5543705133173625458
 Rigidbody:
@@ -491,7 +491,7 @@ MonoBehaviour:
   MoveHorizontal: 0
   MoveVertical: 0
   CanControll: 1
-  _speed: 10
+  _speed: 5
   _playerIndex: 0
 --- !u!54 &5756342043982738060
 Rigidbody:
