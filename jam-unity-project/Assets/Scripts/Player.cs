@@ -40,6 +40,8 @@ namespace UnityTemplateProjects
     public Fight _fight;
     public Fixer _fixer;
 
+    private Animator _animator;
+
     public PlayerRole Role;
 
     public bool CanControll = true;
@@ -52,6 +54,8 @@ namespace UnityTemplateProjects
       _fight = new Fight(this);
       _fixer = gameObject.AddComponent<Fixer>();
       _fixer.Init(this);
+
+      _animator = GetComponentInChildren<Animator>();
     }
 
     private void FixedUpdate()
@@ -117,6 +121,16 @@ namespace UnityTemplateProjects
         return;
       
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+
+      if (movement != Vector3.zero)
+      {
+        _animator.SetBool("Run", true);
+      }
+      else
+      {
+        _animator.SetBool("Run", false);
+      }
+
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
