@@ -6,7 +6,7 @@ namespace UnityTemplateProjects.Maps
   {
     Random _rnd = new Random();
     private Player _player;
-    public Fight(Player player/)
+    public Fight(Player player)
     {
       _player = player;
     }
