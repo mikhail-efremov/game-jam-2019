@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -6,6 +7,11 @@ namespace UnityTemplateProjects.Maps
   {
     public bool IsBroken;
     private MeshRenderer _renderer;
+
+    private void Awake()
+    {
+      _renderer = GetComponentInChildren<MeshRenderer>();
+    }
 
     public void Break()
     {

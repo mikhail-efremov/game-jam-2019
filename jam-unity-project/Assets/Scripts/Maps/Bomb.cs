@@ -9,17 +9,17 @@ namespace UnityTemplateProjects.Maps
     public int Radius;
     public float Timeout;
 
-    public void StartTicking()
+    public void Awake()
     {
       // animation?
-      
+      StartCoroutine(Ticking());
     }
 
     public IEnumerator Ticking()
     {
       yield return new WaitForSeconds(1);
       // animation?
-      yield return new WaitForSeconds(1);
+      //yield return new WaitForSeconds(1);
       // animation?
 
       Explode();
@@ -27,7 +27,16 @@ namespace UnityTemplateProjects.Maps
 
     public void Explode()
     {
-      foreach (var tile in Map.Instance.FirstPlayer)
+      var ftiles = Map.Instance.FirstPlayer;
+      var stiles = Map.Instance.SecondPlayer;
+
+      ExplodeForTiles(ftiles);
+      ExplodeForTiles(stiles);
+    }
+
+    private void ExplodeForTiles(List<MapTile> tiles)
+    {
+      foreach (var tile in tiles)
       {
         float distanceSqr = (transform.position - tile.transform.position).sqrMagnitude;
         if (distanceSqr < Radius * Radius)
@@ -35,6 +44,8 @@ namespace UnityTemplateProjects.Maps
           tile.Break();
         }
       }
+      
+      Destroy(gameObject);
     }
   }
 }
