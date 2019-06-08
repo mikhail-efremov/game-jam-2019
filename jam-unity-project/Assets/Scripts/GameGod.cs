@@ -18,6 +18,9 @@ namespace UnityTemplateProjects
 
     public int MaxSideHealth;
 
+    public EvilMan EvilMan;
+
+    private int _lastPreActionSeccond = -1;
     private int _lastSeccond = -1;
 
     private int _leftSideHealth;
@@ -36,7 +39,17 @@ namespace UnityTemplateProjects
     private void Update()
     {
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-      
+
+      if (_lastPreActionSeccond != seccond)
+      {
+        _lastPreActionSeccond = seccond;
+        var preActions = Actions.Where(x => x.Seccond == seccond - 3);
+        foreach (var action in preActions)
+        {
+          PreAction(action);
+        }
+      }
+
       if (_lastSeccond == seccond)
         return;
       
@@ -63,7 +76,12 @@ namespace UnityTemplateProjects
 
     private Side _lastBombSide = Side.Left;
     private Side _lastDecaySide = Side.Right;
-    
+
+    private void PreAction(TimeBasedAction action)
+    {
+      StartCoroutine(EvilMan.PreAction());
+    }
+
     private void ProceedAction(TimeBasedAction action)
     {
       switch (action.Type)
