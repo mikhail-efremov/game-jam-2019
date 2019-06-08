@@ -58,7 +58,7 @@ namespace UnityTemplateProjects
       Side = side;
     }
 
-    private void Awake()
+    private void Start()
     {
       _fight = new Fight(this);
       _fixer = gameObject.AddComponent<Fixer>();
