@@ -4,6 +4,8 @@ using UnityTemplateProjects;
 
 public class HealthbarUi : MonoBehaviour
 {
+//  public Side
+  
   private Image _image;
   
   void Start()
@@ -13,11 +15,13 @@ public class HealthbarUi : MonoBehaviour
 
   void Update()
   {
-//    var max = GameGod.Instance.MaximumBullets;
-  //  var cur = GameGod.Instance.CurrentBullets;
+    var max = GameGod.Instance.MaxSideHealth;
     
-    //var value = ((float)cur / max);
+    /*
+    var cur = GameGod.Instance.CurrentBullets;
     
-    //_image.fillAmount = value;
+    var value = ((float)cur / max);
+    
+    _image.fillAmount = value;*/
   }
 }

@@ -46,6 +46,11 @@ namespace UnityTemplateProjects
       }
     }
 
+    public int GetHealthBySide(Side side)
+    {
+      return side == Side.Left ? _leftSideHealth : _rightSideHealth;
+    }
+
     private Side _lastBombSide = Side.Left;
     private Side _lastDecaySide = Side.Right;
     
