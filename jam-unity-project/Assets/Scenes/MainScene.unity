@@ -904,17 +904,17 @@ PrefabInstance:
     - target: {fileID: 495615819207554413, guid: e536ce53625ef9b4593725b706904eac,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8758531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495615819207554413, guid: e536ce53625ef9b4593725b706904eac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.5646114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495615819207554413, guid: e536ce53625ef9b4593725b706904eac,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.4810424
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 495615819207554413, guid: e536ce53625ef9b4593725b706904eac,
         type: 3}
@@ -961,6 +961,31 @@ PrefabInstance:
       propertyPath: EvilMan
       value: 
       objectReference: {fileID: 1226505057}
+    - target: {fileID: 495615819207554412, guid: e536ce53625ef9b4593725b706904eac,
+        type: 3}
+      propertyPath: Actions.Array.data[1].Seccond
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 495615819207554412, guid: e536ce53625ef9b4593725b706904eac,
+        type: 3}
+      propertyPath: Actions.Array.data[2].Seccond
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 495615819207554412, guid: e536ce53625ef9b4593725b706904eac,
+        type: 3}
+      propertyPath: Actions.Array.data[3].Seccond
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 495615819207554412, guid: e536ce53625ef9b4593725b706904eac,
+        type: 3}
+      propertyPath: Actions.Array.data[4].Seccond
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 495615819207554412, guid: e536ce53625ef9b4593725b706904eac,
+        type: 3}
+      propertyPath: Actions.Array.data[5].Seccond
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e536ce53625ef9b4593725b706904eac, type: 3}
 --- !u!1001 &6603198961733409111
