@@ -13,27 +13,29 @@ namespace UnityTemplateProjects.Maps
 
     public void Awake()
     {
+      CanExplode = true;
       // animation?
       StartCoroutine(Ticking());
     }
 
     public IEnumerator Ticking()
-    {var slow = transform.DOPunchScale(new Vector3(1, 1, 1),3f).SetLoops(-1, LoopType.Yoyo);
+    {
+      var slow = transform.DOScale(1.1f, .3f).SetLoops(-1, LoopType.Yoyo);
       yield return new WaitForSeconds(Timeout / 3.33f);
       slow.Kill();
-      var moderate = transform.DOPunchScale(new Vector3(1, 1, 1),2f).SetLoops(-1, LoopType.Yoyo);
+      var moderate = transform.DOScale(1.3f, .2f).SetLoops(-1, LoopType.Yoyo);
       yield return new WaitForSeconds(Timeout / 3.33f);
       moderate.Kill();
-      var fast = transform.DOPunchScale(new Vector3(1, 1, 1),2f).SetLoops(-1, LoopType.Yoyo);
+      var fast = transform.DOScale(1.5f, .1f).SetLoops(-1, LoopType.Yoyo);
       yield return new WaitForSeconds(Timeout / 3.33f);
       fast.Kill();
       // animation?
       //yield return new WaitForSeconds(1);
       // animation?
 
-      while(!CanExplode)
+      while (!CanExplode)
         yield return new WaitForSeconds(0.2f);
-      
+
       Explode();
     }
 
