@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
 {
-  public class Tile : MonoBehaviour
+  public class MapTile : MonoBehaviour
   {
     public bool IsBroken;
     private MeshRenderer _renderer;

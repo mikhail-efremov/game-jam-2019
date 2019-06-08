@@ -2727,6 +2727,8 @@ MonoBehaviour:
   Bomb: {fileID: 4037937440908050800, guid: 9a95bb803acd5c34b9a9d496b405e7a5, type: 3}
   FirstPlayer: []
   SecondPlayer: []
+  FirstPlayerRoot: {fileID: 4853179192264609155}
+  SecondPlayerRoot: {fileID: 7956875775173837889}
 --- !u!65 &5923588900450817926
 BoxCollider:
   m_ObjectHideFlags: 0

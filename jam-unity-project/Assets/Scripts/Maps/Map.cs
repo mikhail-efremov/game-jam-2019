@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -8,14 +9,20 @@ namespace UnityTemplateProjects.Maps
   {
     public GameObject Bomb;
     
-    public List<Tile> FirstPlayer;
-    public List<Tile> SecondPlayer;
+    public List<MapTile> FirstPlayer;
+    public List<MapTile> SecondPlayer;
+
+    public GameObject FirstPlayerRoot;
+    public GameObject SecondPlayerRoot;
 
     public static Map Instance;
 
     public void Awake()
     {
       Instance = this;
+
+      FirstPlayer = FirstPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
+      SecondPlayer = SecondPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
     }
   }
 }
