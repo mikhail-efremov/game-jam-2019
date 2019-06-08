@@ -149,6 +149,24 @@ namespace UnityTemplateProjects
               Controll.Cancel, "Cancel_P3"
             }
           }
+        },
+        {
+          PlayerIndex.Four,
+          new Dictionary<Controll, string>
+          {
+            {
+              Controll.Horizontal, "Horizontal_P4"
+            },
+            {
+              Controll.Vertical, "Vertical_P4"
+            },
+            {
+              Controll.Activate, "Activate_P4"
+            },
+            {
+              Controll.Cancel, "Cancel_P4"
+            }
+          }
         }
       };
 
