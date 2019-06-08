@@ -349,6 +349,7 @@ MonoBehaviour:
   MoveVertical: 0
   _fixer: {fileID: 0}
   Role: 0
+  Side: 0
   CanControll: 1
   _speed: 5
   _playerIndex: 0
@@ -480,6 +481,7 @@ MonoBehaviour:
   MoveVertical: 0
   _fixer: {fileID: 0}
   Role: 0
+  Side: 0
   CanControll: 1
   _speed: 5
   _playerIndex: 0
@@ -726,6 +728,7 @@ MonoBehaviour:
   MoveVertical: 0
   _fixer: {fileID: 0}
   Role: 0
+  Side: 0
   CanControll: 1
   _speed: 5
   _playerIndex: 0
@@ -1108,7 +1111,7 @@ PrefabInstance:
     - target: {fileID: 5364652719253816029, guid: 015944554c904a74c9ee0c0f6bfa8068,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5364652719253816029, guid: 015944554c904a74c9ee0c0f6bfa8068,
         type: 3}
@@ -1180,11 +1183,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2255212090267486760}
     m_Modifications:
-    - target: {fileID: 6628170129641221385, guid: 715792b5cbecd3644b59e59ca638c4db,
-        type: 3}
-      propertyPath: m_Name
-      value: Char01_Game_Small
-      objectReference: {fileID: 0}
     - target: {fileID: 5089659056862750013, guid: 715792b5cbecd3644b59e59ca638c4db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1240,6 +1238,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6628170129641221385, guid: 715792b5cbecd3644b59e59ca638c4db,
+        type: 3}
+      propertyPath: m_Name
+      value: Char01_Game_Small
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 715792b5cbecd3644b59e59ca638c4db, type: 3}
 --- !u!4 &1640972913440605141 stripped
@@ -1255,11 +1258,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 474902600428255296}
     m_Modifications:
-    - target: {fileID: 2521216251201860313, guid: 6741855f1adb9084f8a41f9f0a491a30,
-        type: 3}
-      propertyPath: m_Name
-      value: Char01_Game_Big
-      objectReference: {fileID: 0}
     - target: {fileID: 4586015433612458733, guid: 6741855f1adb9084f8a41f9f0a491a30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1314,6 +1312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2521216251201860313, guid: 6741855f1adb9084f8a41f9f0a491a30,
+        type: 3}
+      propertyPath: m_Name
+      value: Char01_Game_Big
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6741855f1adb9084f8a41f9f0a491a30, type: 3}

@@ -6,160 +6,171 @@ using UnityTemplateProjects.Maps;
 
 namespace UnityTemplateProjects
 {
-  public enum PlayerIndex
-  {
-    One,
-    Two,
-    Three,
-    Four
-  }
-
-  public enum Controll
-  {
-    Horizontal,
-    Vertical,
-    Activate,
-    Cancel
-  }
-
-  public enum PlayerRole
-  {
-    Big,
-    Fix,
-    Shoot
-  }
-
-  public class Player : MonoBehaviour
-  {
-    public float MoveHorizontal = 0f;
-    public float MoveVertical = 0f;
-
-    private float _nextUse;
-    private const float UseRate = 0.1f;
-
-    public Fight _fight;
-    public Fixer _fixer;
-
-    private Animator _animator;
-
-    public PlayerRole Role;
-    public Side Side;
-
-    public bool CanControll = true;
-
-    [SerializeField] private float _speed = 5;
-    [SerializeField] public PlayerIndex _playerIndex;
-
-    private AudioSource _stepsAudioSource;
-	
-    public void Init(Side side, PlayerRole role)
+    public enum PlayerIndex
     {
-      Role = role;
-      Side = side;
+        One,
+        Two,
+        Three,
+        Four
     }
 
-    private void Start()
+    public enum Controll
     {
-      _fight = new Fight(this);
-      _fixer = gameObject.AddComponent<Fixer>();
-      _fixer.Init(this);
-
-      _animator = GetComponentInChildren<Animator>();
-
-      _stepsAudioSource = gameObject.AddComponent<AudioSource>();
-      _stepsAudioSource.clip = Map.Instance.StepsAudio;
-      _stepsAudioSource.loop = true;
+        Horizontal,
+        Vertical,
+        Activate,
+        Cancel
     }
 
-    private void FixedUpdate()
+    public enum PlayerRole
     {
-      MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
-      MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
+        Big,
+        Fix,
+        Shoot
+    }
 
-      var action = false;
+    public class Player : MonoBehaviour
+    {
+        public float MoveHorizontal = 0f;
+        public float MoveVertical = 0f;
 
-      if (Role == PlayerRole.Fix && Input.GetKey("z"))
-        action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);
-      if (Role == PlayerRole.Shoot && Input.GetKey("x"))
-        action = GamePad.GetButton(GamePad.Button.Start, _gamePadMap[_playerIndex]);
+        private float _nextUse;
+        private const float UseRate = 0.1f;
 
-      if (Role == PlayerRole.Big)
-      {
-        if (_playerIndex == PlayerIndex.One)
+        public Fight _fight;
+        public Fixer _fixer;
+
+        private Animator _animator;
+
+        public PlayerRole Role;
+        public Side Side;
+
+        public bool CanControll = true;
+
+        [SerializeField] private float _speed = 5;
+        [SerializeField] public PlayerIndex _playerIndex;
+
+        private AudioSource _stepsAudioSource;
+
+        public void Init(Side side, PlayerRole role)
         {
-          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
-          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
-
-          action = GamePad.GetButton(GamePad.Button.Start, GamePad.Index.One)
-                   || GamePad.GetButton(GamePad.Button.Back, GamePad.Index.One)
-                   || Input.GetKey("z");
+            Role = role;
+            Side = side;
         }
 
-        if (_playerIndex == PlayerIndex.Three)
+        private void Start()
         {
-          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
-          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
+            _fight = new Fight(this);
+            _fixer = gameObject.AddComponent<Fixer>();
+            _fixer.Init(this);
 
-          action = GamePad.GetButton(GamePad.Button.Back, GamePad.Index.Two)
-                   || GamePad.GetButton(GamePad.Button.Start, GamePad.Index.Two)
-                   || Input.GetKey("x");
+            _animator = GetComponentInChildren<Animator>();
+
+            _stepsAudioSource = gameObject.AddComponent<AudioSource>();
+            _stepsAudioSource.loop = false;
         }
 
-        Mathf.Clamp01(MoveHorizontal);
-        Mathf.Clamp01(MoveVertical);
-      }
+        private int _prev;
 
-      if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
-      {
-        _fixer.StartFixing(Side);
-      }
-      else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
-      {
-        _fixer.StopFixing();
-      }
+        private void FixedUpdate()
+        {
+            MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
+            MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
 
+            var action = false;
 
-      if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
-      {
-        _fight.Hold();
-      }
-      else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
-      {
-        _fight.Throw();
-      }
+            if (Role == PlayerRole.Fix && Input.GetKey("z"))
+                action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);
+            if (Role == PlayerRole.Shoot && Input.GetKey("x"))
+                action = GamePad.GetButton(GamePad.Button.Start, _gamePadMap[_playerIndex]);
 
-      if (!CanControll)
-        return;
+            if (Role == PlayerRole.Big)
+            {
+                if (_playerIndex == PlayerIndex.One)
+                {
+                    MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
+                    MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
 
-      var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+                    action = GamePad.GetButton(GamePad.Button.Start, GamePad.Index.One)
+                             || GamePad.GetButton(GamePad.Button.Back, GamePad.Index.One)
+                             || Input.GetKey("z");
+                }
 
-      if (movement != Vector3.zero)
-      {
-        _animator.SetBool("Run", true);
-        if (!_stepsAudioSource.isPlaying)
-          _stepsAudioSource.Play();
-      }
-      else
-      {
-        if (_stepsAudioSource.isPlaying)
-          _stepsAudioSource.Stop();
-        _animator.SetBool("Run", false);
-      }
+                if (_playerIndex == PlayerIndex.Three)
+                {
+                    MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
+                    MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
 
-      var rigid = GetComponent<Rigidbody>();
+                    action = GamePad.GetButton(GamePad.Button.Back, GamePad.Index.Two)
+                             || GamePad.GetButton(GamePad.Button.Start, GamePad.Index.Two)
+                             || Input.GetKey("x");
+                }
 
-      if (CanControll)
-        rigid.velocity = movement * _speed;
-      else
-        rigid.velocity = Vector3.zero;
+                Mathf.Clamp01(MoveHorizontal);
+                Mathf.Clamp01(MoveVertical);
+            }
 
-      var rot = transform.rotation;
-      rot.eulerAngles = Vector3.zero;
-    }
+            if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
+            {
+                _fixer.StartFixing(Side);
+            }
+            else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
+            {
+                _fixer.StopFixing();
+            }
 
-    private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =
-      new Dictionary<PlayerIndex, Dictionary<Controll, string>>
-      {
+            if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
+            {
+                _fight.Hold();
+            }
+            else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
+            {
+                _fight.Throw();
+            }
+
+            if (!CanControll)
+                return;
+
+            var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+
+            if (movement != Vector3.zero)
+            {
+                _animator.SetBool("Run", true);
+                if (!_stepsAudioSource.isPlaying)
+                {
+                    var randomNumber = Random.Range(0, Map.Instance.StepsAudio.Count);
+                    while (randomNumber == _prev)
+                        randomNumber = Random.Range(0, Map.Instance.StepsAudio.Count);
+
+                    _prev = randomNumber;
+                    var randomClip = Map.Instance.StepsAudio[randomNumber];
+                    _stepsAudioSource.clip = randomClip;
+                    _stepsAudioSource.volume = 0.3f;
+                    _stepsAudioSource.pitch = 1.5f;
+                    _stepsAudioSource.Play();
+                }
+            }
+            else
+            {
+                if (_stepsAudioSource.isPlaying)
+                    _stepsAudioSource.Stop();
+                _animator.SetBool("Run", false);
+            }
+
+            var rigid = GetComponent<Rigidbody>();
+
+            if (CanControll)
+                rigid.velocity = movement * _speed;
+            else
+                rigid.velocity = Vector3.zero;
+
+            var rot = transform.rotation;
+            rot.eulerAngles = Vector3.zero;
+        }
+
+        private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =
+          new Dictionary<PlayerIndex, Dictionary<Controll, string>>
+          {
         {
           PlayerIndex.One, new Dictionary<Controll, string>
           {
@@ -231,9 +242,9 @@ namespace UnityTemplateProjects
             }
           }
         }
-      };
+          };
 
-    private readonly Dictionary<PlayerIndex, GamePad.Index> _gamePadMap = new Dictionary<PlayerIndex, GamePad.Index>
+        private readonly Dictionary<PlayerIndex, GamePad.Index> _gamePadMap = new Dictionary<PlayerIndex, GamePad.Index>
     {
       {
         PlayerIndex.One, GamePad.Index.One
@@ -249,16 +260,16 @@ namespace UnityTemplateProjects
       },
     };
 
-    public void BlockMovement()
-    {
-      CanControll = false;
-      var rigid = GetComponent<Rigidbody>();
-      rigid.velocity = Vector3.zero;
-    }
+        public void BlockMovement()
+        {
+            CanControll = false;
+            var rigid = GetComponent<Rigidbody>();
+            rigid.velocity = Vector3.zero;
+        }
 
-    public void ReleaseMovement()
-    {
-      CanControll = true;
+        public void ReleaseMovement()
+        {
+            CanControll = true;
+        }
     }
-  }
 }
