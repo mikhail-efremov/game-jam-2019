@@ -5,20 +5,20 @@ namespace UnityTemplateProjects.Maps
   public class Fight
   {
     Random _rnd = new Random();
-    /*private Player _player;*/
-    public Fight(/*Player ref*/)
+    private Player _player;
+    public Fight(Player player/)
     {
-      
+      _player = player;
     }
     
     public void Hold()
     {
-      // _player.BlockMovement();
+      _player.BlockMovement();
     }
 
     public void Throw()
     {
-      // _release.ReleaseMovement();
+      _player.ReleaseMovement();
 
       var targetTiles = Map.Instance.SecondPlayer;// TODO: _player.PlayerIndex
       var rndNumber = Random.Range(0, targetTiles.Count);
