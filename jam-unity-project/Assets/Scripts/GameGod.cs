@@ -14,12 +14,19 @@ namespace UnityTemplateProjects
         
     public List<TimeBasedAction> Actions = new List<TimeBasedAction>();
 
+    public int MaxSideHealth;
+
     private int _lastSeccond = -1;
+
+    private int _leftSideHealth;
+    private int _rightSideHealth;
        
     private void Awake()
     {
       _instance = this;
       DontDestroyOnLoad(gameObject);
+
+      _leftSideHealth = MaxSideHealth;
     }
 
     private void Update()
