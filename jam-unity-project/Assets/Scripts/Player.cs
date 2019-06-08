@@ -30,8 +30,8 @@ namespace UnityTemplateProjects
     private float _nextUse;
     private const float UseRate = 0.1f;
 
-    private Fight _fight;
-    private Fixer _fixer;
+    public Fight _fight;
+    public Fixer _fixer;
 
     public bool CanControll = true;
 
@@ -51,6 +51,16 @@ namespace UnityTemplateProjects
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
 
       var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0;
+
+      if (_fixer.IsFixing && Input.GetKeyUp(KeyCode.R))
+      {
+        _fixer.StopFixing();
+      }
+      
+      if (!_fixer.IsFixing && Input.GetKeyDown(KeyCode.R))
+      {
+        _fixer.StartFixing();
+      }
 
       if (GamePad.GetButtonDown(GamePad.Button.B, _gamePadMap[_playerIndex]))
       {
