@@ -69,6 +69,7 @@ namespace UnityTemplateProjects.Maps
       var explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
       yield return new WaitForSeconds(2);
       Destroy(explosion);
+      Destroy(gameObject);
     }
 
     private void ExplodeForTiles(List<MapTile> tiles)
@@ -83,7 +84,7 @@ namespace UnityTemplateProjects.Maps
         }
       }
 
-      Destroy(gameObject);
+      GetComponent<MeshRenderer>().enabled = false;
     }
   }
 }
