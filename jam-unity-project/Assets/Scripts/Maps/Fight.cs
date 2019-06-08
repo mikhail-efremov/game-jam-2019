@@ -23,6 +23,8 @@ namespace UnityTemplateProjects.Maps
       var targetTiles = Map.Instance.SecondPlayer;// TODO: _player.PlayerIndex
       var rndNumber = Random.Range(0, targetTiles.Count);
       var position = targetTiles[rndNumber].transform.position;
+
+      position.y += 1;
       
       var bomb = GameObject.Instantiate(Map.Instance.Bomb);
       bomb.transform.position = position;
