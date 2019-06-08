@@ -11,6 +11,8 @@ namespace UnityTemplateProjects
   {
     private static GameGod _instance;
     public static GameGod Instance => _instance;
+
+    public bool IsGameOver;
         
     public List<TimeBasedAction> Actions = new List<TimeBasedAction>();
 
@@ -23,6 +25,7 @@ namespace UnityTemplateProjects
        
     private void Awake()
     {
+      IsGameOver = false;
       _instance = this;
       DontDestroyOnLoad(gameObject);
 

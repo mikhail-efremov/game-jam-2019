@@ -561,6 +561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe9b7117e5041a9b72c1400bbe7f62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsGameOver: 0
   Actions:
   - Type: 0
     Side: 0
@@ -977,6 +978,22 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 174538906, guid: fdb55b05d8a056b44bba3beb056935f5, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 174538906, guid: fdb55b05d8a056b44bba3beb056935f5, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 935771207, guid: fdb55b05d8a056b44bba3beb056935f5, type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 935771207, guid: fdb55b05d8a056b44bba3beb056935f5, type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb55b05d8a056b44bba3beb056935f5, type: 3}
