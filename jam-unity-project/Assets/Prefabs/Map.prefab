@@ -1199,8 +1199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bomb: {fileID: 4037937440908050800, guid: 9a95bb803acd5c34b9a9d496b405e7a5, type: 3}
   FixTime: 1
-  FirstPlayer: []
-  SecondPlayer: []
+  PickUpDistance: 1
+  FixDistance: 1
+  LeftPlayer: []
+  RightPlayer: []
   FirstPlayerRoot: {fileID: 4853179192264609155}
   SecondPlayerRoot: {fileID: 4135054450864852000}
 --- !u!65 &7758976435304599282

@@ -63,6 +63,7 @@ namespace UnityTemplateProjects
         _nextUse = Time.time + UseRate;
 
         Debug.LogError("USE SHIIIT");
+        _fight.Hold();
         _fight.Throw();
       }
       

@@ -328,7 +328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Actions:
   - Type: 0
-    Side: 2
+    Side: 0
     Seccond: 1
   - Type: 3
     Side: 0
@@ -337,14 +337,14 @@ MonoBehaviour:
     Side: 1
     Seccond: 1
   - Type: 0
-    Side: 2
+    Side: 0
     Seccond: 2
   - Type: 1
     Side: 0
     Seccond: 3
-  - Type: 2
-    Side: 1
-    Seccond: 5
+  - Type: 0
+    Side: 0
+    Seccond: 3
   - Type: 0
     Side: 2
     Seccond: 3
