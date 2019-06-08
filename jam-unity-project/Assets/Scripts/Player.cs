@@ -85,12 +85,18 @@ namespace UnityTemplateProjects
 
       if (!CanControll)
         return;
-
+      
+      
+      var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+      float step = _speed * Time.deltaTime;
+      transform.position += movement * _speed * Time.deltaTime;
+      
+/*
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
-/*
+
       // The step size is equal to speed times frame time.
       float step = 500000 * Time.deltaTime;
       var vector = Quaternion.AngleAxis(90, Vector3.up) * rigid.velocity;
