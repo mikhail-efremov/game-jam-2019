@@ -772,24 +772,123 @@ MonoBehaviour:
   - Type: 0
     Side: 0
     Seccond: 1
+    BompTimeout: 0
   - Type: 0
     Side: 0
     Seccond: 1
+    BompTimeout: 0
   - Type: 0
     Side: 1
     Seccond: 1
+    BompTimeout: 0
   - Type: 0
     Side: 0
     Seccond: 2
+    BompTimeout: 0
   - Type: 0
     Side: 0
     Seccond: 3
+    BompTimeout: 0
   - Type: 0
     Side: 0
     Seccond: 3
+    BompTimeout: 0
   - Type: 0
     Side: 2
     Seccond: 3
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 3
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 3
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 3
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 5
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 7
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 8
+    BompTimeout: 1
+  - Type: 0
+    Side: 2
+    Seccond: 10
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 12
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 15
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 17
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 18
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 20
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 22
+    BompTimeout: 0
+  - Type: 0
+    Side: 0
+    Seccond: 23
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 25
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 30
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 32
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 35
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 37
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 39
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 42
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 45
+    BompTimeout: 0
+  - Type: 0
+    Side: 2
+    Seccond: 47
+    BompTimeout: 0
 --- !u!4 &271032791
 Transform:
   m_ObjectHideFlags: 0

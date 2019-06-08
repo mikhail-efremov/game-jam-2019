@@ -62,7 +62,7 @@ namespace UnityTemplateProjects
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
       
-      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0.9;
+      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0.3;
 
       if (Role == PlayerRole.Big)
       {
@@ -71,7 +71,7 @@ namespace UnityTemplateProjects
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
           
-          action |= Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Activate]) > 0;
+          action |= Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Activate]) > 0.3;
         }
 
         if (_playerIndex == PlayerIndex.Three)
@@ -79,7 +79,7 @@ namespace UnityTemplateProjects
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
           
-          action |= Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Activate]) > 0;
+          action |= Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Activate]) > 0.3;
         }
 
         Mathf.Clamp01(MoveHorizontal);
@@ -88,6 +88,9 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
+        Debug.LogError(_playerIndex + " " + Role + " tryed to fix");
+        Debug.LogError(Input.GetAxis(_controlls[_playerIndex][Controll.Activate]));
+        
         _fixer.StartFixing();
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
@@ -95,8 +98,11 @@ namespace UnityTemplateProjects
         _fixer.StopFixing();
       }
 
-      if (Role == PlayerRole.Shoot || Role == PlayerRole.Big)
+      if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
+        Debug.LogError(_playerIndex + " " + Role + " tryed to shoot");
+        Debug.LogError(Input.GetAxis(_controlls[_playerIndex][Controll.Activate]));
+        
         if (action && Time.time > _nextUse)
         {
           _nextUse = Time.time + UseRate;

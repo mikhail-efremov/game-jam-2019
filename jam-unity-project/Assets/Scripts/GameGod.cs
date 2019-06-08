@@ -61,6 +61,9 @@ namespace UnityTemplateProjects
           var tile = map[tileIndex];
           
           var bomb = Instantiate(Map.Instance.Bomb);
+
+          if (action.BompTimeout > 0)
+            bomb.GetComponent<Bomb>().Timeout = action.BompTimeout;
           var pos = tile.transform.position;
           pos.y += 1;
           bomb.transform.position = pos;
@@ -121,6 +124,7 @@ namespace UnityTemplateProjects
     public TimeBasedActionType Type;
     public Side Side;
     public int Seccond;
+    public int BompTimeout;
   }
 
   public enum TimeBasedActionType
