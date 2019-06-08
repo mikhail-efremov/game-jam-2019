@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -6,27 +5,25 @@ namespace UnityTemplateProjects.Maps
   public class MapTile : MonoBehaviour
   {
     public bool IsBroken;
-    private MeshRenderer _renderer;
+    public GameObject BrokenGo;
 
     private void Awake()
     {
-      _renderer = GetComponentInChildren<MeshRenderer>();
+      BrokenGo.SetActive(false);
     }
 
     public void Break()
     {
       IsBroken = true;
-      _renderer.material.color = Color.red;
+      BrokenGo.SetActive(true);
       // animation?
     }
 
     public void Repair()
     {
       IsBroken = false;
-      _renderer.material.color = Color.green;
+      BrokenGo.SetActive(false);
       // animation?
-    }
-
-    
+    }    
   }
 }

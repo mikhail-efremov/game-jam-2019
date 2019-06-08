@@ -22,6 +22,13 @@ namespace UnityTemplateProjects
     Cancel
   }
 
+  public enum PlayerRole
+  {
+    Big,
+    Fix,
+    Shoot
+  }
+
   public class Player : MonoBehaviour
   {
     public float MoveHorizontal = 0f;
@@ -32,6 +39,8 @@ namespace UnityTemplateProjects
 
     public Fight _fight;
     public Fixer _fixer;
+
+    public PlayerRole Role;
 
     public bool CanControll = true;
 
@@ -52,70 +61,61 @@ namespace UnityTemplateProjects
       
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
-
-      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0;
-
-      if (_fixer.IsFixing && Input.GetKeyUp(KeyCode.R))
-      {
-        _fixer.StopFixing();
-      }
       
-      if (!_fixer.IsFixing && Input.GetKeyDown(KeyCode.R))
+      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0.9;
+
+      if (Role == PlayerRole.Big)
+      {
+        if (_playerIndex == PlayerIndex.One)
+        {
+          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
+          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
+          
+          action |= Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Activate]) > 0;
+        }
+
+        if (_playerIndex == PlayerIndex.Three)
+        {
+          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
+          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
+          
+          action |= Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Activate]) > 0;
+        }
+
+        Mathf.Clamp01(MoveHorizontal);
+        Mathf.Clamp01(MoveVertical);
+      }
+
+      if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
         _fixer.StartFixing();
       }
-
-      if (GamePad.GetButtonDown(GamePad.Button.B, _gamePadMap[_playerIndex]))
-      {
-        Debug.Log("Activate_P" + ((int)_playerIndex + 1));
-        action = true;
+      else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
+      {     
+        _fixer.StopFixing();
       }
 
-      if (action && Time.time > _nextUse)
+      if (Role == PlayerRole.Shoot || Role == PlayerRole.Big)
       {
-        _nextUse = Time.time + UseRate;
+        if (action && Time.time > _nextUse)
+        {
+          _nextUse = Time.time + UseRate;
 
-        Debug.LogError("USE SHIIIT");
-        _fight.Hold();
-        _fight.Throw();
+          _fight.Hold();
+          _fight.Throw();
+        }
       }
-      
-      ///////////////////SPLIT
-      
-      
-      
-      ///////////////////
 
       if (!CanControll)
         return;
       
-/*      
-      var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-      float step = _speed * Time.deltaTime;
-      transform.position += movement * _speed * Time.deltaTime;
-  */
- 
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
-/*
-      // The step size is equal to speed times frame time.
-      float step = 500000 * Time.deltaTime;
-      var vector = Quaternion.AngleAxis(90, Vector3.up) * rigid.velocity;
-
-      var newDir = Vector3.RotateTowards(transform.forward, vector, step, 0.0f);
-
-      // Move our position a step closer to the target.
-      rigid.rotation = Quaternion.LookRotation(newDir);*/
       
       var rot = transform.rotation; 
       rot.eulerAngles = Vector3.zero;
-    }
-
-    public void Split()
-    {
-      
     }
 
     private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =

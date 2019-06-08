@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using EZCameraShake;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -11,6 +12,10 @@ namespace UnityTemplateProjects.Maps
     public bool CanExplode;
     public float Radius;
     public float Timeout;
+    
+    public float Magnitude = 2f;
+    public float Roughness = 10f;
+    public float FadeOutTime = 5f;
 
     public event Action Exploded;
 
@@ -51,6 +56,8 @@ namespace UnityTemplateProjects.Maps
 
       ExplodeForTiles(ftiles);
       ExplodeForTiles(stiles);
+      
+      CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
     }
 
     private void ExplodeForTiles(List<MapTile> tiles)
