@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GamepadInput;
 using UnityEngine;
+using UnityTemplateProjects.Maps;
 
 namespace UnityTemplateProjects
 {
@@ -28,10 +29,17 @@ namespace UnityTemplateProjects
     private float _nextUse;
     private const float UseRate = 0.1f;
 
+    private Fight _fight;
+
     public bool CanControll = true;
 
     [SerializeField] private float _speed = 5;
     [SerializeField] private PlayerIndex _playerIndex;
+
+    private void Awake()
+    {
+      _fight = new Fight(this);
+    }
 
     private void FixedUpdate()
     {
@@ -39,18 +47,11 @@ namespace UnityTemplateProjects
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
 
       var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0;
-      var needCansel = Input.GetAxis(_controlls[_playerIndex][Controll.Cancel]) > 0;
 
       if (GamePad.GetButtonDown(GamePad.Button.B, _gamePadMap[_playerIndex]))
       {
-			Debug.Log("Activate_P" + ((int)_playerIndex + 1));
+        Debug.Log("Activate_P" + ((int)_playerIndex + 1));
         action = true;
-      }
-
-      if (GamePad.GetButtonDown(GamePad.Button.X, _gamePadMap[_playerIndex]))
-      {
-        needCansel = true;
-			Debug.Log("Cansel_P" + ((int)_playerIndex + 1));
       }
 
       if (action && Time.time > _nextUse)
@@ -58,14 +59,15 @@ namespace UnityTemplateProjects
         _nextUse = Time.time + UseRate;
 
         Debug.LogError("USE SHIIIT");
+        _fight.Throw();
       }
 
       if (!CanControll)
         return;
 
       var movement = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-      Debug.LogError(movement.ToString());
 
+      Debug.LogError(movement);
       var rigid = GetComponent<Rigidbody>();
 
       rigid.velocity = movement * _speed;
@@ -153,5 +155,13 @@ namespace UnityTemplateProjects
         PlayerIndex.Four, GamePad.Index.Four
       },
     };
+
+    public void BlockMovement()
+    {
+    }
+
+    public void ReleaseMovement()
+    {
+    }
   }
 }
