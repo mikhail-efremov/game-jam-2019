@@ -289,6 +289,11 @@ PrefabInstance:
       propertyPath: _playerIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2396883271735828399, guid: 05770a85392eebe4caaefe8dcf912dfc,
+        type: 3}
+      propertyPath: Side
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3489089575432036941, guid: 05770a85392eebe4caaefe8dcf912dfc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05770a85392eebe4caaefe8dcf912dfc, type: 3}
@@ -321,6 +326,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfe9b7117e5041a9b72c1400bbe7f62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actions:
+  - Type: 0
+    Side: 2
+    Seccond: 1
+  - Type: 3
+    Side: 0
+    Seccond: 1
+  - Type: 3
+    Side: 1
+    Seccond: 1
+  - Type: 0
+    Side: 2
+    Seccond: 2
+  - Type: 1
+    Side: 0
+    Seccond: 3
+  - Type: 2
+    Side: 1
+    Seccond: 5
+  - Type: 0
+    Side: 2
+    Seccond: 3
 --- !u!4 &271032791
 Transform:
   m_ObjectHideFlags: 0

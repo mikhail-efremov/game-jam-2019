@@ -33,8 +33,8 @@ namespace UnityTemplateProjects.Maps
 
     public void Explode()
     {
-      var ftiles = Map.Instance.FirstPlayer;
-      var stiles = Map.Instance.SecondPlayer;
+      var ftiles = Map.Instance.LeftPlayer;
+      var stiles = Map.Instance.RightPlayer;
 
       ExplodeForTiles(ftiles);
       ExplodeForTiles(stiles);
