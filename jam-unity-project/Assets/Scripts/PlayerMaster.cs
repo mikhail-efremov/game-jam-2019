@@ -3,6 +3,8 @@ using UnityTemplateProjects;
 
 public class PlayerMaster : MonoBehaviour
 {
+  public Side Side;
+  
   public Player BigPlayer;
 
   public Player FixPlayer;

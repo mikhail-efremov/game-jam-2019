@@ -12,34 +12,41 @@ namespace UnityTemplateProjects.Maps
     public float PickUpDistance = 0.3f;
     public float FixDistance = 0.3f;
     
-    public List<MapTile> FirstPlayer;
-    public List<MapTile> SecondPlayer;
+    public List<MapTile> LeftPlayer;
+    public List<MapTile> RightPlayer;
 
     public GameObject FirstPlayerRoot;
     public GameObject SecondPlayerRoot;
 
     public static Map Instance;
 
+    public List<MapTile> BySide(Side side)
+    {
+      if (side == Side.Left)
+        return LeftPlayer;
+      return RightPlayer;
+    }
+
     public void Awake()
     {
       Instance = this;
 
-      FirstPlayer = FirstPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
-      SecondPlayer = SecondPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
+      LeftPlayer = FirstPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
+      RightPlayer = SecondPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
     }
 
     public List<MapTile> GetOpponentTiles(PlayerIndex index)
     {
       return index == PlayerIndex.One || index == PlayerIndex.Two
-        ? SecondPlayer
-        : FirstPlayer;
+        ? RightPlayer
+        : LeftPlayer;
     }
     
     public List<MapTile> GetMyTiles(PlayerIndex index)
     {
       return index == PlayerIndex.One || index == PlayerIndex.Two
-        ? FirstPlayer
-        : SecondPlayer;
+        ? LeftPlayer
+        : RightPlayer;
     }
   }
 }
