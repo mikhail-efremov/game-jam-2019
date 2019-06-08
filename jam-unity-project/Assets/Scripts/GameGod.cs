@@ -151,6 +151,8 @@ namespace UnityTemplateProjects
   [Serializable]
   public class TimeBasedAction
   {
+    public string Name;
+    
     public TimeBasedActionType Type;
     public Side Side;
     public int Seccond;

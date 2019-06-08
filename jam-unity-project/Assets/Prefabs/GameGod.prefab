@@ -45,69 +45,180 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   Actions:
-  - Type: 3
+  - Name: 4 decay
+    Type: 3
     Side: 0
     Seccond: 4
     BompTimeout: 0
-  - Type: 3
+  - Name: 8 decay
+    Type: 3
     Side: 1
     Seccond: 8
     BompTimeout: 0
-  - Type: 0
+  - Name: 13 bomb
+    Type: 0
     Side: 2
-    Seccond: 12
+    Seccond: 13
     BompTimeout: 0
-  - Type: 0
+  - Name: 18 bomb
+    Type: 0
     Side: 2
-    Seccond: 16
+    Seccond: 18
     BompTimeout: 0
-  - Type: 0
+  - Name: 18 bomb
+    Type: 0
     Side: 2
-    Seccond: 16
+    Seccond: 18
     BompTimeout: 0
-  - Type: 0
+  - Name: 18 bomb
+    Type: 0
     Side: 2
-    Seccond: 16
+    Seccond: 18
     BompTimeout: 0
-  - Type: 1
+  - Name: 23 split
+    Type: 1
     Side: 0
-    Seccond: 20
+    Seccond: 23
     BompTimeout: 0
-  - Type: 0
+  - Name: 23 bomb
+    Type: 0
     Side: 0
-    Seccond: 20
+    Seccond: 23
     BompTimeout: 0
-  - Type: 0
+  - Name: 27 bomb
+    Type: 0
     Side: 1
-    Seccond: 24
+    Seccond: 27
     BompTimeout: 0
-  - Type: 1
+  - Name: 27 split
+    Type: 1
     Side: 1
-    Seccond: 24
+    Seccond: 27
     BompTimeout: 0
-  - Type: 0
+  - Name: 31 bomb
+    Type: 0
     Side: 0
-    Seccond: 28
+    Seccond: 31
     BompTimeout: 0
-  - Type: 0
+  - Name: 31 bomb
+    Type: 0
     Side: 0
-    Seccond: 28
+    Seccond: 31
     BompTimeout: 0
-  - Type: 0
+  - Name: 31 bomb
+    Type: 0
     Side: 1
-    Seccond: 28
+    Seccond: 31
     BompTimeout: 0
-  - Type: 0
+  - Name: 31 bomb
+    Type: 0
     Side: 1
-    Seccond: 28
+    Seccond: 31
     BompTimeout: 0
-  - Type: 2
+  - Name: 38 together
+    Type: 2
     Side: 0
-    Seccond: 35
+    Seccond: 38
     BompTimeout: 0
-  - Type: 2
+  - Name: 38 together
+    Type: 2
     Side: 1
-    Seccond: 35
+    Seccond: 38
+    BompTimeout: 0
+  - Name: 42 decay
+    Type: 3
+    Side: 0
+    Seccond: 42
+    BompTimeout: 0
+  - Name: 42 decay
+    Type: 3
+    Side: 0
+    Seccond: 42
+    BompTimeout: 0
+  - Name: 42 decay
+    Type: 3
+    Side: 1
+    Seccond: 42
+    BompTimeout: 0
+  - Name: 42 decay
+    Type: 3
+    Side: 1
+    Seccond: 42
+    BompTimeout: 0
+  - Name: 50 bomb
+    Type: 0
+    Side: 0
+    Seccond: 50
+    BompTimeout: 0
+  - Name: 55 bomb
+    Type: 0
+    Side: 1
+    Seccond: 55
+    BompTimeout: 0
+  - Name: 60 bomb
+    Type: 0
+    Side: 0
+    Seccond: 60
+    BompTimeout: 0
+  - Name: 65 bomb
+    Type: 0
+    Side: 1
+    Seccond: 65
+    BompTimeout: 0
+  - Name: 69 split left
+    Type: 1
+    Side: 0
+    Seccond: 69
+    BompTimeout: 0
+  - Name: 73 bomb left
+    Type: 0
+    Side: 0
+    Seccond: 73
+    BompTimeout: 0
+  - Name: 77 split right
+    Type: 1
+    Side: 1
+    Seccond: 77
+    BompTimeout: 0
+  - Name: 81 bomb right
+    Type: 0
+    Side: 1
+    Seccond: 81
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
+    BompTimeout: 0
+  - Name: 85 bomb
+    Type: 0
+    Side: 2
+    Seccond: 85
     BompTimeout: 0
   MaxSideHealth: 10
   EvilMan: {fileID: 0}
