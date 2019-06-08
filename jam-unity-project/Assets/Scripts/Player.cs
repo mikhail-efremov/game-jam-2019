@@ -62,8 +62,13 @@ namespace UnityTemplateProjects
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
       
-      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0.3;
-
+      var action = false;
+      
+      if (Role == PlayerRole.Fix)
+        action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);        
+      if (Role == PlayerRole.Shoot)
+        action = GamePad.GetButton(GamePad.Button.Start, _gamePadMap[_playerIndex]);
+              
       if (Role == PlayerRole.Big)
       {
         if (_playerIndex == PlayerIndex.One)
@@ -71,7 +76,8 @@ namespace UnityTemplateProjects
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
           
-          action |= Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Activate]) > 0.3;
+          action = GamePad.GetButton(GamePad.Button.Start, GamePad.Index.One)
+            || GamePad.GetButton(GamePad.Button.Back, GamePad.Index.One);
         }
 
         if (_playerIndex == PlayerIndex.Three)
@@ -79,7 +85,8 @@ namespace UnityTemplateProjects
           MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
           MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
           
-          action |= Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Activate]) > 0.3;
+          action = GamePad.GetButton(GamePad.Button.Back, GamePad.Index.Two)
+            || GamePad.GetButton(GamePad.Button.Start, GamePad.Index.Two);
         }
 
         Mathf.Clamp01(MoveHorizontal);
@@ -88,9 +95,6 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        Debug.LogError(_playerIndex + " " + Role + " tryed to fix");
-        Debug.LogError(Input.GetAxis(_controlls[_playerIndex][Controll.Activate]));
-        
         _fixer.StartFixing();
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
@@ -100,10 +104,7 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
-        Debug.LogError(_playerIndex + " " + Role + " tryed to shoot");
-        Debug.LogError(Input.GetAxis(_controlls[_playerIndex][Controll.Activate]));
-        
-        if (action && Time.time > _nextUse)
+        if (Time.time > _nextUse)
         {
           _nextUse = Time.time + UseRate;
 
@@ -206,13 +207,13 @@ namespace UnityTemplateProjects
         PlayerIndex.One, GamePad.Index.One
       },
       {
-        PlayerIndex.Two, GamePad.Index.Two
+        PlayerIndex.Two, GamePad.Index.One
       },
       {
-        PlayerIndex.Three, GamePad.Index.Three
+        PlayerIndex.Three, GamePad.Index.Two
       },
       {
-        PlayerIndex.Four, GamePad.Index.Four
+        PlayerIndex.Four, GamePad.Index.Two
       },
     };
 
