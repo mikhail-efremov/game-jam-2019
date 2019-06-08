@@ -90,6 +90,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7e137f735ce473bbfb6d17b00b58135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Explosion: {fileID: 6444803948318627009, guid: 65cda160da8471d44be7589f7c41c60d,
+    type: 3}
   CanExplode: 0
   Radius: 0.5
   Timeout: 10
+  Magnitude: 2
+  Roughness: 10
+  FadeOutTime: 5

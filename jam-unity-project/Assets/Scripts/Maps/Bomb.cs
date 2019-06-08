@@ -9,6 +9,8 @@ namespace UnityTemplateProjects.Maps
 {
   public class Bomb : MonoBehaviour
   {
+    public GameObject Explosion;
+    
     public bool CanExplode;
     public float Radius;
     public float Timeout;
@@ -56,8 +58,17 @@ namespace UnityTemplateProjects.Maps
 
       ExplodeForTiles(ftiles);
       ExplodeForTiles(stiles);
+
+      StartCoroutine(Effect());
       
       CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
+    }
+
+    private IEnumerator Effect()
+    {
+      var explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
+      yield return new WaitForSeconds(2);
+      Destroy(explosion);
     }
 
     private void ExplodeForTiles(List<MapTile> tiles)

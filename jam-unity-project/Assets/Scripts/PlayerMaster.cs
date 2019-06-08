@@ -103,6 +103,12 @@ public class PlayerMaster : MonoBehaviour
 
   public void GetTogether()
   {
+    var newX = (FixPlayer.transform.position.x + FightPlayer.transform.position.x) / 2;
+    var newY = BigPlayer.transform.position.y;
+    var newZ = (FixPlayer.transform.position.z + FightPlayer.transform.position.z) / 2;
+    var newPos = new Vector3(newX, newY, newZ);
+
+    BigPlayer.transform.position = newPos;
     BigPlayer.gameObject.SetActive(true);
 
     FixPlayer.gameObject.SetActive(false);
