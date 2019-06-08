@@ -8,6 +8,7 @@ namespace UnityTemplateProjects.Maps
   public class Map : MonoBehaviour
   {
     public GameObject Bomb;
+    public float FixTime;
     
     public List<MapTile> FirstPlayer;
     public List<MapTile> SecondPlayer;
@@ -23,6 +24,20 @@ namespace UnityTemplateProjects.Maps
 
       FirstPlayer = FirstPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
       SecondPlayer = SecondPlayerRoot.GetComponentsInChildren<MapTile>().ToList();
+    }
+
+    public List<MapTile> GetOpponentTiles(PlayerIndex index)
+    {
+      return index == PlayerIndex.One || index == PlayerIndex.Two
+        ? SecondPlayer
+        : FirstPlayer;
+    }
+    
+    public List<MapTile> GetMyTiles(PlayerIndex index)
+    {
+      return index == PlayerIndex.One || index == PlayerIndex.Two
+        ? FirstPlayer
+        : SecondPlayer;
     }
   }
 }

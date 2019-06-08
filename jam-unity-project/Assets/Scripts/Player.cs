@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GamepadInput;
 using UnityEngine;
 using UnityTemplateProjects.Maps;
@@ -30,15 +31,18 @@ namespace UnityTemplateProjects
     private const float UseRate = 0.1f;
 
     private Fight _fight;
+    private Fixer _fixer;
 
     public bool CanControll = true;
 
     [SerializeField] private float _speed = 5;
-    [SerializeField] private PlayerIndex _playerIndex;
+    [SerializeField] public PlayerIndex _playerIndex;
 
     private void Awake()
     {
       _fight = new Fight(this);
+      _fixer = gameObject.AddComponent<Fixer>();
+      _fixer.Init(this);
     }
 
     private void FixedUpdate()

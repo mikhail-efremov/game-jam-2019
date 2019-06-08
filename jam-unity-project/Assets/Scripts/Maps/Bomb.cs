@@ -6,12 +6,18 @@ namespace UnityTemplateProjects.Maps
 {
   public class Bomb : MonoBehaviour
   {
-    public int Radius;
+    public float Radius;
     public float Timeout;
 
     public void Awake()
     {
       // animation?
+      
+    }
+
+
+    public void StartTicking()
+    {
       StartCoroutine(Ticking());
     }
 
@@ -38,13 +44,14 @@ namespace UnityTemplateProjects.Maps
     {
       foreach (var tile in tiles)
       {
-        float distanceSqr = (transform.position - tile.transform.position).sqrMagnitude;
-        if (distanceSqr < Radius * Radius)
+        var tilePos = tile.transform.position;
+        float distance = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(tilePos.x, tilePos.z));
+        if (distance < Radius)
         {
           tile.Break();
         }
       }
-      
+
       Destroy(gameObject);
     }
   }
