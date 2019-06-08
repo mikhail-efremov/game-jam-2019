@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -10,6 +11,8 @@ namespace UnityTemplateProjects.Maps
     public bool CanExplode;
     public float Radius;
     public float Timeout;
+
+    public event Action Exploded;
 
     public void Awake()
     {
@@ -36,6 +39,8 @@ namespace UnityTemplateProjects.Maps
       while (!CanExplode)
         yield return new WaitForSeconds(0.2f);
 
+      Exploded?.Invoke();
+      
       Explode();
     }
 

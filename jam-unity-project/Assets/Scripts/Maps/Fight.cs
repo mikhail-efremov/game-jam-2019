@@ -18,6 +18,9 @@ namespace UnityTemplateProjects.Maps
 
     public void Hold()
     {
+      if (IsHolding)
+        return;
+      
       var existingBombs = Object.FindObjectsOfType<Bomb>();
       if (existingBombs == null || existingBombs.Length == 0)
         return;
@@ -30,12 +33,19 @@ namespace UnityTemplateProjects.Maps
         return;
 
       _bomb = nearestBomb.GetComponent<Bomb>();
+      _bomb.Exploded += BombOnExploded;
       IsHolding = true;
       _player.BlockMovement();
       
       var position = _player.transform.position;
       position.y += 1;
       _bomb.transform.position = position;
+    }
+
+    private void BombOnExploded()
+    {
+      _bomb.Exploded -= BombOnExploded;
+      IsHolding = false;
     }
 
     public void Throw()
@@ -47,7 +57,6 @@ namespace UnityTemplateProjects.Maps
       _player.ReleaseMovement();
 
       var targetTiles = Map.Instance.GetOpponentTiles(_player._playerIndex);
-
       var targetTilesNotDamaged = targetTiles.Where(t => !t.IsBroken).ToList();
 
       if (!targetTilesNotDamaged.Any())
