@@ -14,6 +14,11 @@ public class PlayerMaster : MonoBehaviour
     {
       Split();
     }
+    
+    if (Input.GetKeyDown("1"))
+    {
+      GetTogether();
+    }
   }
 
   public void Split()
@@ -28,6 +33,11 @@ public class PlayerMaster : MonoBehaviour
 
   public void GetTogether()
   {
-      
+    BigPlayer.gameObject.SetActive(true);
+
+    FixPlayer.gameObject.SetActive(false);
+    FightPlayer.gameObject.SetActive(false);
+    
+    Debug.LogError("GET TOGETHER!");
   }
 }
