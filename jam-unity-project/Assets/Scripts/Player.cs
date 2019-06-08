@@ -47,6 +47,9 @@ namespace UnityTemplateProjects
 
     private void FixedUpdate()
     {
+      if (!CanControll)
+        return;
+      
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
 
@@ -209,10 +212,14 @@ namespace UnityTemplateProjects
 
     public void BlockMovement()
     {
+      CanControll = false;
+      var rigid = GetComponent<Rigidbody>();
+      rigid.velocity = Vector3.zero;
     }
 
     public void ReleaseMovement()
     {
+      CanControll = true;
     }
   }
 }
