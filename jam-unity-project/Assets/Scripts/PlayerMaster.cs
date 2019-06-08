@@ -10,6 +10,14 @@ public class PlayerMaster : MonoBehaviour
   public Player FixPlayer;
   public Player FightPlayer;
 
+  private void Awake()
+  {
+    BigPlayer.Role = PlayerRole.Big;
+
+    FixPlayer.Role = PlayerRole.Fix;
+    FightPlayer.Role = PlayerRole.Shoot;
+  }
+
   private void Update()
   {
     if (Input.GetKeyDown("space"))

@@ -22,6 +22,13 @@ namespace UnityTemplateProjects
     Cancel
   }
 
+  public enum PlayerRole
+  {
+    Big,
+    Fix,
+    Shoot
+  }
+
   public class Player : MonoBehaviour
   {
     public float MoveHorizontal = 0f;
@@ -32,6 +39,8 @@ namespace UnityTemplateProjects
 
     public Fight _fight;
     public Fixer _fixer;
+
+    public PlayerRole Role;
 
     public bool CanControll = true;
 
@@ -49,32 +58,49 @@ namespace UnityTemplateProjects
     {
       MoveHorizontal = Input.GetAxis(_controlls[_playerIndex][Controll.Horizontal]);
       MoveVertical = Input.GetAxis(_controlls[_playerIndex][Controll.Vertical]);
-
-      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0;
-
-      if (_fixer.IsFixing && Input.GetKeyUp(KeyCode.R))
-      {
-        _fixer.StopFixing();
-      }
       
-      if (!_fixer.IsFixing && Input.GetKeyDown(KeyCode.R))
+      var action = Input.GetAxis(_controlls[_playerIndex][Controll.Activate]) > 0.9;
+
+      if (Role == PlayerRole.Big)
+      {
+        if (_playerIndex == PlayerIndex.One)
+        {
+          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Horizontal]);
+          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Vertical]);
+          
+          action |= Input.GetAxis(_controlls[PlayerIndex.Two][Controll.Activate]) > 0;
+        }
+
+        if (_playerIndex == PlayerIndex.Three)
+        {
+          MoveHorizontal += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Horizontal]);
+          MoveVertical += Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Vertical]);
+          
+          action |= Input.GetAxis(_controlls[PlayerIndex.Four][Controll.Activate]) > 0;
+        }
+
+        Mathf.Clamp01(MoveHorizontal);
+        Mathf.Clamp01(MoveVertical);
+      }
+
+      if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
         _fixer.StartFixing();
       }
-
-      if (GamePad.GetButtonDown(GamePad.Button.B, _gamePadMap[_playerIndex]))
-      {
-        Debug.Log("Activate_P" + ((int)_playerIndex + 1));
-        action = true;
+      else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
+      {     
+        _fixer.StopFixing();
       }
 
-      if (action && Time.time > _nextUse)
+      if (Role == PlayerRole.Shoot || Role == PlayerRole.Big)
       {
-        _nextUse = Time.time + UseRate;
+        if (action && Time.time > _nextUse)
+        {
+          _nextUse = Time.time + UseRate;
 
-        Debug.LogError("USE SHIIIT");
-        _fight.Hold();
-        _fight.Throw();
+          _fight.Hold();
+          _fight.Throw();
+        }
       }
 
       if (!CanControll)
