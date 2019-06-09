@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2428606894619458955}
   m_LocalRotation: {x: 0.28871205, y: 0.046114963, z: -0.15083523, w: 0.94433445}
-  m_LocalPosition: {x: 8, y: 2.81, z: -0}
+  m_LocalPosition: {x: 9.93, y: 8.42, z: 2.26}
   m_LocalScale: {x: 17.25, y: 13.799999, z: 1.15}
   m_Children:
   - {fileID: 5735394411497042819}
@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 6603198961326490667}
   - component: {fileID: 6603198961326490666}
   - component: {fileID: 1226505057}
+  - component: {fileID: 81504552862759950}
   m_Layer: 0
   m_Name: EvilMan
   m_TagString: Untagged
@@ -580,6 +581,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 6603198961326490666}
+--- !u!114 &81504552862759950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603198961326490668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a26c303e367e8ac4c9e84b3f4a736e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6603198961326490666}
 --- !u!1001 &5564629890677548444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -597,15 +611,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ef009d93022c6d041932857f45aeb0f8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.402
+      value: -0.393
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ef009d93022c6d041932857f45aeb0f8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.398
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ef009d93022c6d041932857f45aeb0f8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.48
+      value: -0.61
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: ef009d93022c6d041932857f45aeb0f8, type: 3}
       propertyPath: m_LocalRotation.x
