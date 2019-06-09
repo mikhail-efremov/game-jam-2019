@@ -30,6 +30,7 @@ Transform:
   m_Children:
   - {fileID: 5886142192794180803}
   - {fileID: 5555375992149544061}
+  - {fileID: 607066979466564105}
   m_Father: {fileID: 5219874999362350098}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -63,7 +64,7 @@ GameObject:
   - component: {fileID: 607066979466564105}
   - component: {fileID: 607066979447166793}
   - component: {fileID: 607066979447140073}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,11 +79,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 607066979466923561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.044, y: -0.85, z: 0.789}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -0.043999992, y: -0.06499999, z: -0.03699999}
+  m_LocalScale: {x: -2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 5886142192794180803}
-  m_RootOrder: 1
+  m_Father: {fileID: 8224234449448059257}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &607066979447166793
 ParticleSystem:
@@ -5026,7 +5027,6 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 5097861132931061339}
-  - {fileID: 607066979466564105}
   m_Father: {fileID: 8224234449448059257}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6229,7 +6229,7 @@ GameObject:
   - component: {fileID: 2267497840332895326}
   - component: {fileID: 2267497840352293150}
   - component: {fileID: 2267497840352184510}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6244,11 +6244,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2267497840333187198}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.799, z: 0.84}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: -0.07800002, z: -0.04100003}
+  m_LocalScale: {x: -2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 4319815887416093018}
-  m_RootOrder: 1
+  m_Father: {fileID: 1765005482424546528}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2267497840352293150
 ParticleSystem:
@@ -10832,6 +10832,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 8967386559554797043}
   - {fileID: 8556508858658338506}
   - {fileID: 1307625847891621466}
   m_Father: {fileID: 729081107779137438}
@@ -11170,9 +11171,8 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 7038609358155938898}
-  - {fileID: 8967386559554797043}
   m_Father: {fileID: 6139336427199949680}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4507178759242627133
 GameObject:
@@ -11365,7 +11365,7 @@ Transform:
   m_LocalScale: {x: 0.66666675, y: 0.6666668, z: 0.66666675}
   m_Children: []
   m_Father: {fileID: 6139336427199949680}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 23.604002, y: -26.79, z: 0}
 --- !u!119 &4582240777857278592
 Projector:
@@ -12936,6 +12936,7 @@ Transform:
   m_Children:
   - {fileID: 4319815887416093018}
   - {fileID: 2534097990393310668}
+  - {fileID: 2267497840332895326}
   m_Father: {fileID: 5884963034841964154}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14399,7 +14400,7 @@ GameObject:
   - component: {fileID: 8967386559554797043}
   - component: {fileID: 8967386559536445619}
   - component: {fileID: 8967386559536529683}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14414,11 +14415,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8967386559555281363}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.575, z: 0.945}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: -0.0059999875, z: -0.06300002}
+  m_LocalScale: {x: -2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 8556508858658338506}
-  m_RootOrder: 1
+  m_Father: {fileID: 6139336427199949680}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &8967386559536445619
 ParticleSystem:
@@ -19001,7 +19002,6 @@ Transform:
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 3234687592742626242}
-  - {fileID: 2267497840332895326}
   m_Father: {fileID: 1765005482424546528}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

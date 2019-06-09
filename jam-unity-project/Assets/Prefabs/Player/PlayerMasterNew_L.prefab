@@ -193,7 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5397431856763385694}
   - component: {fileID: 1566891577249254452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Molot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 2671067435012424261}
   - component: {fileID: 2671067434998269701}
   - component: {fileID: 2671067434998185637}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1555,11 +1555,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2671067435011939941}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.575, z: 0.945}
+  m_LocalPosition: {x: 0, y: -0.0059999875, z: -0.06300002}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 3449146288144615804}
-  m_RootOrder: 1
+  m_Father: {fileID: 887291372484809926}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &2671067434998269701
 ParticleSystem:
@@ -6455,7 +6455,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8467026803833052276}
-  - {fileID: 5049874915875245032}
   m_Father: {fileID: 4692056041308785494}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6470,7 +6469,7 @@ GameObject:
   - component: {fileID: 2920620328849638133}
   - component: {fileID: 2920620328849638123}
   - component: {fileID: 2920620328849638132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6562,7 +6561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620328929408738}
   - component: {fileID: 2920620328929408737}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6641,7 +6640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620328980727775}
   - component: {fileID: 2920620328980727774}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6721,7 +6720,7 @@ GameObject:
   - component: {fileID: 2920620329168927782}
   - component: {fileID: 2920620329168927780}
   - component: {fileID: 2920620329168927781}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6811,7 +6810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620329242543582}
   - component: {fileID: 2920620329242543581}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6890,7 +6889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620329250722259}
   - component: {fileID: 2920620329250722258}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6970,7 +6969,7 @@ GameObject:
   - component: {fileID: 2920620329572954786}
   - component: {fileID: 2920620329572954784}
   - component: {fileID: 2920620329572954785}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7062,7 +7061,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620329731692670}
   - component: {fileID: 2920620329731692669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7142,7 +7141,7 @@ GameObject:
   - component: {fileID: 2920620329822216382}
   - component: {fileID: 2920620329822216380}
   - component: {fileID: 2920620329822216381}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7235,7 +7234,7 @@ GameObject:
   - component: {fileID: 2920620330201534521}
   - component: {fileID: 2920620330201534527}
   - component: {fileID: 2920620330201534520}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7327,7 +7326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620330237378162}
   - component: {fileID: 2920620330237378161}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7406,7 +7405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620330282087401}
   - component: {fileID: 2920620330282087400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7485,7 +7484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2920620330531062077}
   - component: {fileID: 2920620330531062076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7565,7 +7564,7 @@ GameObject:
   - component: {fileID: 2920620330794924127}
   - component: {fileID: 2920620330794924125}
   - component: {fileID: 2920620330794924126}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RunBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7677,6 +7676,7 @@ Transform:
   m_Children:
   - {fileID: 7102201450803091180}
   - {fileID: 8811833134628409978}
+  - {fileID: 5049874915875245032}
   m_Father: {fileID: 632915786295992780}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7770,7 +7770,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1895574546485193354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9084,7 +9084,7 @@ GameObject:
   - component: {fileID: 5049874915875245032}
   - component: {fileID: 5049874915890450088}
   - component: {fileID: 5049874915890558728}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9099,11 +9099,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049874915874953160}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.799, z: 0.84}
+  m_LocalPosition: {x: 0, y: -0.07800002, z: -0.04100003}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 7102201450803091180}
-  m_RootOrder: 1
+  m_Father: {fileID: 4692056041308785494}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &5049874915890450088
 ParticleSystem:
@@ -13800,7 +13800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634092881762067317}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Char_Render01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13819,7 +13819,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2295774293629856237}
-  - {fileID: 5841092907290783167}
   m_Father: {fileID: 3116876418710404815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13849,11 +13848,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5841092907290423711}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.044, y: -0.85, z: 0.789}
+  m_LocalPosition: {x: 0.043999992, y: -0.06499999, z: -0.03699999}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
-  m_Father: {fileID: 634092881762067317}
-  m_RootOrder: 1
+  m_Father: {fileID: 3116876418710404815}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &5841092907275577599
 ParticleSystem:
@@ -18551,7 +18550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2295774293629856237}
   - component: {fileID: 984747861439809797}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18666,6 +18665,7 @@ Transform:
   m_Children:
   - {fileID: 634092881762067317}
   - {fileID: 1475964864125547467}
+  - {fileID: 5841092907290783167}
   m_Father: {fileID: 1230537788295271332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18795,7 +18795,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092979132595979236}
-  - {fileID: 2671067435012424261}
   m_Father: {fileID: 887291372484809926}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19104,6 +19103,7 @@ Transform:
   m_Children:
   - {fileID: 3449146288144615804}
   - {fileID: 5424192098026211820}
+  - {fileID: 2671067435012424261}
   m_Father: {fileID: 6016017836977688616}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

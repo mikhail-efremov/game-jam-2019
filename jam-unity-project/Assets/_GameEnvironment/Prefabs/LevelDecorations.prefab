@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4709896127280345418}
   - component: {fileID: 4200220794054980090}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EvilMan_faceLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999690660603973847}
   - component: {fileID: 1999690660603973844}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1999690660714934871}
   - component: {fileID: 1999690660714934868}
   - component: {fileID: 1999690660714934869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_background_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 1999690661236899564}
   - component: {fileID: 1999690661236899565}
   - component: {fileID: 1999690661236899562}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_house_L (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1999690661243875039}
   - component: {fileID: 1999690661243875036}
   - component: {fileID: 1999690661243875037}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_background_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 1999690661621976096}
   - component: {fileID: 1999690661620648960}
   - component: {fileID: 1999690661619683008}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_house_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 1999690661656079337}
   - component: {fileID: 1999690661656079334}
   - component: {fileID: 1999690661656079335}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_house_L (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 1999690662186127823}
   - component: {fileID: 1999690662186127820}
   - component: {fileID: 1999690662186127821}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_house_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8471622133216788938}
   - component: {fileID: 1452829018710291636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 3728341352604733798}
   - component: {fileID: 3728341352603439430}
   - component: {fileID: 3728341352602309510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_hotel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   - component: {fileID: 3251660783556185805}
   - component: {fileID: 6911635745504093365}
   - component: {fileID: 9216401896165186726}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3070589492727208183}
   - component: {fileID: 2582136953859148804}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2360753992089896752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LevelDecorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -975,7 +975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4788080454884455931}
   - component: {fileID: 8041002810604165004}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1045,7 +1045,7 @@ GameObject:
   - component: {fileID: 358294975377770763}
   - component: {fileID: 7797662894328328985}
   - component: {fileID: 7876626761861059005}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: env_farCity_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
