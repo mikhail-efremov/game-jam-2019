@@ -88,7 +88,7 @@ namespace UnityTemplateProjects.Maps
       if (_bomb == null)
         return false;
       
-      _bomb.transform.DOJump(targetPos, 4f, 1, 0.74f)
+      _bomb.transform.DOJump(targetPos, 4f, 1, 1.44f)
         .SetEase(Ease.OutCirc)
         .OnStart(() => { _bomb.CanExplode = false; })
         .OnComplete(() =>
