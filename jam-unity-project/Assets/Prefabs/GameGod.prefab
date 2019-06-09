@@ -271,6 +271,56 @@ MonoBehaviour:
     Side: 2
     Seccond: 99
     BompTimeout: 1
+  - Name: 99 bomb
+    Type: 0
+    Side: 2
+    Seccond: 99
+    BompTimeout: 1
+  - Name: 99 bomb
+    Type: 0
+    Side: 2
+    Seccond: 99
+    BompTimeout: 1
+  - Name: 99 bomb
+    Type: 0
+    Side: 2
+    Seccond: 99
+    BompTimeout: 1
+  - Name: 99 bomb
+    Type: 0
+    Side: 2
+    Seccond: 99
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
+  - Name: 100 bomb
+    Type: 0
+    Side: 2
+    Seccond: 100
+    BompTimeout: 1
   MaxSideHealth: 10
   EvilMan: {fileID: 0}
 --- !u!114 &6470140220958564140
