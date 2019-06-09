@@ -25,8 +25,8 @@ namespace UnityTemplateProjects.Maps
     private AudioSource _explosionAudioSource;
     private AudioSource _tickingAudioSource;
 
-        public event Action Exploded;
-        public bool IsInteractable = true;
+    public event Action Exploded;
+    public bool IsInteractable = true;
 
     public void Awake()
     {
@@ -63,11 +63,19 @@ namespace UnityTemplateProjects.Maps
 
     public void Explode()
     {
-      var ftiles = Map.Instance.LeftPlayer;
-      var stiles = Map.Instance.RightPlayer;
+      if (Map.Instance != null)
+      {
+        var ftiles = Map.Instance.LeftPlayer;
+        var stiles = Map.Instance.RightPlayer;
 
-      ExplodeForTiles(ftiles, Side.Left);
-      ExplodeForTiles(stiles, Side.Right);
+        ExplodeForTiles(ftiles, Side.Left);
+        ExplodeForTiles(stiles, Side.Right);
+      }
+      
+      foreach (Transform child in transform)
+      {
+        child.gameObject.SetActive(false);
+      }
 
       _explosionAudioSource.Play();
 
@@ -79,7 +87,7 @@ namespace UnityTemplateProjects.Maps
     private IEnumerator Effect()
     {
       var explosion = Instantiate(Explosion, transform.position, Quaternion.identity);
-      yield return new WaitForSeconds(2);
+      yield return new WaitForSeconds(0.5f);
       _explosionAudioSource.Stop();
       Destroy(explosion);
       Destroy(gameObject);
@@ -97,15 +105,12 @@ namespace UnityTemplateProjects.Maps
           tile.Break();
 
           var baseHealth = GameGod.Instance.GetHealthBySide(side);
-          var value = baseHealth - 1;          
+          var value = baseHealth - 1;
           GameGod.Instance.SetHealthBySide(side, value);
         }
       }
 
-      foreach (Transform child in transform)
-      {
-        child.gameObject.SetActive(false);
-      }
+      
     }
   }
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -18,18 +19,25 @@ namespace UnityTemplateProjects.Maps
       _mainGameMusic = gameObject.AddComponent<AudioSource>();
       _mainGameMusic.loop = true;
       _mainGameMusic.clip = Map.Instance.MainGameAudio;
+      _mainGameMusic.playOnAwake = false;
     }
 
     public void PlayMenuMusic()
     {
       _mainGameMusic.Stop();
+      _menuAudioSource.volume = 0;
       _menuAudioSource.Play();
+      
+      DOTween.To(() => _menuAudioSource.volume, x => _menuAudioSource.volume = x, 1, 6);
     }
 
     public void PlayMainGameMusic()
     {
       _menuAudioSource.Stop();
+      _mainGameMusic.volume = 0;
       _mainGameMusic.Play();
+      
+      DOTween.To(() => _mainGameMusic.volume, x => _mainGameMusic.volume = x, 1, 6);
     }
   }
 }
