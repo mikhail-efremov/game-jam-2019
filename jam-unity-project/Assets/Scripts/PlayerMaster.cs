@@ -131,6 +131,9 @@ public class PlayerMaster : MonoBehaviour
     var newY = BigPlayer.transform.position.y;
     var newZ = (FixPlayer.transform.position.z + FightPlayer.transform.position.z) / 2;
     var newPos = new Vector3(newX, newY, newZ);
+    
+    var splitEffect = Instantiate(SplitEffect, newPos, Quaternion.identity);
+    splitEffect.SetActive(true);
 
     var fixPlayerPos = FixPlayer.transform.position;
     var fightPlayerPos = FightPlayer.transform.position;
@@ -169,8 +172,7 @@ public class PlayerMaster : MonoBehaviour
 
     yield return new WaitForSeconds(0.2f);
 
-    var splitEffect = Instantiate(SplitEffect, newPos, Quaternion.identity);
-    splitEffect.SetActive(true);
+    
 
     yield return new WaitForSeconds(0.2f);
 
