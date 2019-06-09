@@ -84,4 +84,16 @@ public class EvilMan : MonoBehaviour
       Smile.Play();
     }
   }
+
+  private bool _isReset = false;
+  
+  public void Reset()
+  {
+    if (!_isReset)
+    {
+      _isReset = true;
+      _animator.Rebind();
+    }
+   
+  }
 }

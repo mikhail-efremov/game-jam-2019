@@ -2,6 +2,7 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace UnityTemplateProjects.Maps
 {
@@ -15,6 +16,8 @@ namespace UnityTemplateProjects.Maps
 
     public GameObject LeftLose;
     public GameObject RightLose;
+
+    public GameObject[] UIObjects;
     
     private Vector3 _leftTarget = new Vector3(-3.38f,4.5f,-2.52f);
     private Vector3 _rightTarget = new Vector3(3.39f,3.37f,-1.54f);
@@ -50,7 +53,6 @@ namespace UnityTemplateProjects.Maps
         RightLose.transform.DOMove(_rightTarget, 0.4f);
 
         yield return new WaitForSeconds(5);
-        
 
         LeftFinish.GetComponentInChildren<ParticleSystem>().Stop();
       }
@@ -71,7 +73,13 @@ namespace UnityTemplateProjects.Maps
         //LeftLose.transform.DOScale(new Vector3(1.1f,1.1f,1), )
       }
 
-      DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 0, 2);
+      foreach (var uiObject in UIObjects)
+      {
+        uiObject.GetComponent<Image>().DOFade(0, 1f);
+      }
+
+      MusicMaster.Instance.StopAllMusic();
+      DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 22, 2);
 
       var allBoms = FindObjectsOfType<Bomb>();
       foreach (var bom in allBoms)
@@ -102,9 +110,12 @@ namespace UnityTemplateProjects.Maps
       {
         renderer2.DOFade(0, 1f).SetEase(Ease.Flash);
       }
+
+      
       
       yield return new WaitForSeconds(2);
 
+      Destroy(GameGod.Instance);
       SceneManager.LoadScene("MenuScene");
     }
   }
