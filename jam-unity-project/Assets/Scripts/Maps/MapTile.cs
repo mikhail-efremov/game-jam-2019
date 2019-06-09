@@ -25,6 +25,7 @@ namespace UnityTemplateProjects.Maps
     {
       IsBroken = false;
       BrokenGo.SetActive(false);
+      StopFixing();
       // animation?
     }
 
@@ -35,7 +36,7 @@ namespace UnityTemplateProjects.Maps
 
     public void StopFixing()
     {
-      FixingGo.SetActive(true);
+      FixingGo.SetActive(false);
     }
   }
 }
