@@ -43,6 +43,8 @@ namespace UnityTemplateProjects.Maps
     {
       Debug.Log("STARTING TO FIX");
       IsFixing = true;
+      if(_mapTile != null)
+        _mapTile.StartFixing();
       yield return new WaitForSeconds(Map.Instance.FixTime);
 
       Debug.Log("FIXING FINISHED");
@@ -57,6 +59,8 @@ namespace UnityTemplateProjects.Maps
       god.SetHealthBySide(_mySide, cur + 1);
       
       IsFixing = false;
+      if(_mapTile != null)
+        _mapTile.StopFixing();
     }
 
     public void StopFixing()
@@ -67,6 +71,8 @@ namespace UnityTemplateProjects.Maps
         StopCoroutine("Fixing");
         IsFixing = false;
         Debug.Log("FIXING JUST STOPPED");
+        if(_mapTile != null)
+          _mapTile.StopFixing();
       }
     }
   }

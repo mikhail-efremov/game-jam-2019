@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace UnityTemplateProjects.Maps
@@ -6,6 +7,7 @@ namespace UnityTemplateProjects.Maps
   {
     public bool IsBroken;
     public GameObject BrokenGo;
+    public GameObject FixingGo;
 
     private void Awake()
     {
@@ -24,6 +26,16 @@ namespace UnityTemplateProjects.Maps
       IsBroken = false;
       BrokenGo.SetActive(false);
       // animation?
-    }    
+    }
+
+    public void StartFixing()
+    {
+      FixingGo.SetActive(true);
+    }
+
+    public void StopFixing()
+    {
+      FixingGo.SetActive(true);
+    }
   }
 }
