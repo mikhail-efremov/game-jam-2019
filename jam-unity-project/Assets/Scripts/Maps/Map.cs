@@ -9,7 +9,7 @@ namespace UnityTemplateProjects.Maps
         public GameObject Bomb;
         public float FixTime;
         public float PickUpDistance = 0.3f;
-        public float FixDistance = 0.3f;
+        public float FixDistance = 100f;
 
         public List<MapTile> LeftPlayer;
         public List<MapTile> RightPlayer;

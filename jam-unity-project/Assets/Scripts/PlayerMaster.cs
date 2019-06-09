@@ -50,7 +50,6 @@ public class PlayerMaster : MonoBehaviour
 
   public IEnumerator SplitCo()
   {
-    BigPlayer.BlockMovement();
     BigPlayer.gameObject.SetActive(false);
 
     var splitEffect = Instantiate(SplitEffect, BigPlayer.transform.position, Quaternion.identity);
@@ -111,8 +110,9 @@ public class PlayerMaster : MonoBehaviour
     Destroy(fixPlayerEndEffect);
     Destroy(fightPlayerEndEffect);
     Destroy(splitEffect);
-
-    BigPlayer.ReleaseMovement();
+    
+    FixPlayer.ReleaseMovement();
+    FightPlayer.ReleaseMovement();
 
     Destroy(splitAudioSource);
   }

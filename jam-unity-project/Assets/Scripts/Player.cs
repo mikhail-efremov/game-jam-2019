@@ -116,16 +116,23 @@ namespace UnityTemplateProjects
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
         if (_fixRoutine != null)
-          StopCoroutine(_fixRoutine);
-        _fixRoutine = null;
+          return;
 
         var routine = FixRoutine();
         _fixRoutine = routine;
         StartCoroutine(_fixRoutine);
+        
+        BlockMovement();
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
+        if (_fixRoutine != null)
+          StopCoroutine(_fixRoutine);
+        _fixRoutine = null;
+        
         _fixer.StopFixing();
+        
+        ReleaseMovement();
       }
 
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
@@ -181,8 +188,11 @@ namespace UnityTemplateProjects
     private IEnumerator ThrowRoutine()
     {
       if (!_fight.Throw())
+      {
+        _animator.SetBool("PickUP", false);
         yield break;
-      
+      }
+
       _animator.SetBool("PickUP", false);
       yield return new WaitForSeconds(.1f);
       _animator.SetBool("Throw", true);
@@ -193,11 +203,15 @@ namespace UnityTemplateProjects
 
     private IEnumerator FixRoutine()
     {
+      if (!_fixer.StartFixing(Side))
+        yield break;
+      
       _animator.SetBool("Fix", true);
-      yield return new WaitForSeconds(.1f);
-      _fixer.StartFixing(Side);
+      
       yield return new WaitForSeconds(1f);
       _animator.SetBool("Fix", false);
+
+      _fixRoutine = null;
     }
 
     private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =

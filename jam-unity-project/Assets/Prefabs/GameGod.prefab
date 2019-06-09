@@ -46,16 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   Actions:
-  - Name: 4 decay
-    Type: 3
+  - Name: 4 bomb
+    Type: 0
     Side: 0
     Seccond: 4
-    BompTimeout: 0
-  - Name: 8 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 8 bomb
+    Type: 0
     Side: 1
     Seccond: 8
-    BompTimeout: 0
+    BompTimeout: 1
   - Name: 13 bomb
     Type: 0
     Side: 2
@@ -126,26 +126,26 @@ MonoBehaviour:
     Side: 1
     Seccond: 38
     BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+  - Name: 42 bomb
+    Type: 0
     Side: 0
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 0
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 1
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 1
     Seccond: 42
-    BompTimeout: 0
+    BompTimeout: 1
   - Name: 50 bomb
     Type: 0
     Side: 0
