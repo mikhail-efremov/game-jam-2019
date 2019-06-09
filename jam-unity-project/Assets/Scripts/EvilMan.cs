@@ -33,7 +33,7 @@ public class EvilMan : MonoBehaviour
 //    Debug.LogError("call action");
     
     _animator.SetBool("Reset", false);
-    _animator.SetBool("Idle", false);    
+    _animator.SetBool("Idle", false);
     _animator.SetBool("Action", true);
     
     yield return new WaitForSeconds(1);

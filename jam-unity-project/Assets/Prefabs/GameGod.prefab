@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495615819207554415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8758531, y: 6.5646114, z: -3.4810424}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,6 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   Actions:
+  - Name: 4 bomb
+    Type: 0
+    Side: 0
+    Seccond: 4
+    BompTimeout: 1
   - Name: 4 bomb
     Type: 0
     Side: 0
@@ -221,7 +226,42 @@ MonoBehaviour:
     Side: 2
     Seccond: 85
     BompTimeout: 0
-  MaxSideHealth: 5
+  - Name: 90 bomb
+    Type: 0
+    Side: 2
+    Seccond: 90
+    BompTimeout: 0
+  - Name: 90 bomb
+    Type: 0
+    Side: 2
+    Seccond: 90
+    BompTimeout: 0
+  - Name: 90 bomb
+    Type: 0
+    Side: 2
+    Seccond: 90
+    BompTimeout: 0
+  - Name: 90 bomb
+    Type: 0
+    Side: 2
+    Seccond: 90
+    BompTimeout: 0
+  - Name: 90 bomb
+    Type: 0
+    Side: 2
+    Seccond: 90
+    BompTimeout: 0
+  - Name: 95 together
+    Type: 2
+    Side: 0
+    Seccond: 95
+    BompTimeout: 0
+  - Name: 95 together
+    Type: 2
+    Side: 1
+    Seccond: 95
+    BompTimeout: 0
+  MaxSideHealth: 10
   EvilMan: {fileID: 0}
 --- !u!114 &6470140220958564140
 MonoBehaviour:
