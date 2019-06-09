@@ -36,12 +36,11 @@ namespace UnityTemplateProjects
     public float MoveVertical = 0f;
 
     private float _nextUse;
-    private const float UseRate = 0.1f;
 
     public Fight _fight;
     public Fixer _fixer;
 
-    private Animator _animator;
+    public Animator _animator;
 
     public PlayerRole Role;
     public Side Side;
@@ -53,7 +52,10 @@ namespace UnityTemplateProjects
 
     private AudioSource _stepsAudioSource;
 
+    private bool _isRun;
+    
     private IEnumerator _fixRoutine;
+    public bool IsRun;
 
     public void Init(Side side, PlayerRole role)
     {
@@ -71,6 +73,8 @@ namespace UnityTemplateProjects
 
       _stepsAudioSource = gameObject.AddComponent<AudioSource>();
       _stepsAudioSource.loop = false;
+      
+      _animator.SetBool("Idle", true);
     }
 
     private int _prev;
@@ -138,13 +142,14 @@ namespace UnityTemplateProjects
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
         _fight.Hold();
+        _animator.SetBool("Idle", false);
         _animator.SetBool("PickUP", true);
       }
       else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
         StartCoroutine(ThrowRoutine());
       }
-
+      
       if (!CanControll)
         return;
 
@@ -152,7 +157,13 @@ namespace UnityTemplateProjects
 
       if (movement != Vector3.zero)
       {
-        _animator.SetBool("Run", true);
+        if (!_isRun)
+        {
+          _isRun = true;
+          _animator.SetBool("Run", true);
+          IsRun = true;
+        }
+        
         if (!_stepsAudioSource.isPlaying)
         {
           var randomNumber = Random.Range(0, Map.Instance.StepsAudio.Count);
@@ -165,13 +176,19 @@ namespace UnityTemplateProjects
           _stepsAudioSource.volume = 0.3f;
           _stepsAudioSource.pitch = 1.5f;
           _stepsAudioSource.Play();
-        }
+        }       
       }
       else
       {
+        if (_isRun)
+        {
+          _isRun = false;
+          IsRun = false;
+          _animator.SetBool("Run", false);
+        }
+        
         if (_stepsAudioSource.isPlaying)
           _stepsAudioSource.Stop();
-        _animator.SetBool("Run", false);
       }
 
       var rigid = GetComponent<Rigidbody>();
@@ -192,10 +209,14 @@ namespace UnityTemplateProjects
         _animator.SetBool("PickUP", false);
         yield break;
       }
+      
+      _animator.SetBool("Idle", false);
+      _animator.SetBool("Run", false);
+      Debug.LogError("run false");
 
       _animator.SetBool("PickUP", false);
       yield return new WaitForSeconds(.1f);
-      _animator.SetBool("Throw", true);
+     _animator.SetBool("Throw", true);
             
       yield return new WaitForSeconds(.5f);
       _animator.SetBool("Throw", false);
@@ -205,7 +226,9 @@ namespace UnityTemplateProjects
     {
       if (!_fixer.StartFixing(Side))
         yield break;
-      
+  
+      _animator.SetBool("Run", false);
+      Debug.LogError("run false");
       _animator.SetBool("Fix", true);
       
       yield return new WaitForSeconds(1f);
