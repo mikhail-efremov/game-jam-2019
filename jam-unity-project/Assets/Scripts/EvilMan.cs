@@ -4,6 +4,9 @@ using UnityEngine;
 public class EvilMan : MonoBehaviour
 {
   public Animator _animator;
+  public AudioSource Smile;
+  public AudioSource Snap;
+  
   private bool _alwaysSmile;
 
   private IEnumerator _routine;
@@ -38,6 +41,7 @@ public class EvilMan : MonoBehaviour
     _animator.SetBool("Idle", false);
     _animator.SetBool("Action", true);
     
+    Snap.Play();
     yield return new WaitForSeconds(1);
     
 //    Debug.LogError("end");
@@ -45,7 +49,10 @@ public class EvilMan : MonoBehaviour
     _animator.SetBool("Action", false);    
     _animator.SetBool("End", true);
     
-    yield return new WaitForSeconds(2f);
+    
+    yield return new WaitForSeconds(.5f);
+    Smile.Play();
+    yield return new WaitForSeconds(1.5f);
     
 //    Debug.LogError("reset");
     
@@ -70,5 +77,11 @@ public class EvilMan : MonoBehaviour
     
     _animator.SetBool("Idle", false);
     _animator.SetBool("Smile", true);
+
+    while (true)
+    {
+      yield return new WaitForSeconds(1);
+      Smile.Play();
+    }
   }
 }
