@@ -141,9 +141,11 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
-        _fight.Hold();
-        _animator.SetBool("Idle", false);
-        _animator.SetBool("PickUP", true);
+        if (_fight.Hold())
+        {
+          _animator.SetBool("Idle", false);
+          _animator.SetBool("PickUP", true);
+        }
       }
       else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
@@ -212,8 +214,7 @@ namespace UnityTemplateProjects
       
       _animator.SetBool("Idle", false);
       _animator.SetBool("Run", false);
-      Debug.LogError("run false");
-
+      
       _animator.SetBool("PickUP", false);
       yield return new WaitForSeconds(.1f);
      _animator.SetBool("Throw", true);
@@ -228,7 +229,6 @@ namespace UnityTemplateProjects
         yield break;
   
       _animator.SetBool("Run", false);
-      Debug.LogError("run false");
       _animator.SetBool("Fix", true);
       
       yield return new WaitForSeconds(1f);

@@ -16,26 +16,26 @@ namespace UnityTemplateProjects.Maps
       _player = player;
     }
 
-    public void Hold()
+    public bool Hold()
     {
       if (IsHolding)
-        return;
+        return false;
 
       var existingBombs = Object.FindObjectsOfType<Bomb>();
       if (existingBombs == null || existingBombs.Length == 0)
-        return;
+        return false;
 
       var nearestBomb = existingBombs.OrderBy(b => Helper.Distance(b.transform.position, _player.transform.position)).FirstOrDefault();
       if (nearestBomb == null)
-        return;
+        return false;
 
       if (Helper.Distance(nearestBomb.transform.position, _player.transform.position) > Map.Instance.PickUpDistance)
-        return;
+        return false;
 
       var component = nearestBomb.GetComponent<Bomb>();
 
       if (!component.IsInteractable)
-        return;
+        return false;
 
       _bomb = component;
       _bomb.Exploded += BombOnExploded;
@@ -50,6 +50,7 @@ namespace UnityTemplateProjects.Maps
       var position = _player.transform.position;
       position.y += 1;
       _bomb.transform.position = position;
+      return true;
     }
 
     private void BombOnExploded()
@@ -82,7 +83,7 @@ namespace UnityTemplateProjects.Maps
       var selectedTile = targetTilesNotDamaged[rndNumber];
 
       var targetPos = selectedTile.transform.position;
-      targetPos.y += 1;
+      targetPos.y = 1;
 
       if (_bomb == null)
         return false;
