@@ -38,7 +38,6 @@ namespace UnityTemplateProjects
       _rightSideHealth = MaxSideHealth;
 
       EvilMan = FindObjectOfType<EvilMan>();
-      
     }
 
     private void Start()
@@ -52,6 +51,10 @@ namespace UnityTemplateProjects
       {
         SceneManager.LoadScene("MenuScene");
       }
+
+      if (IsGameOver)
+        return;
+      
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
       if (_lastSeccond == seccond)
         return;

@@ -82,7 +82,7 @@ namespace UnityTemplateProjects.Maps
       var players = FindObjectsOfType<Player>();
       foreach (var player in players)
       {
-        player.BlockMovement();
+        Destroy(player);
       }
       
       
@@ -103,7 +103,7 @@ namespace UnityTemplateProjects.Maps
         renderer2.DOFade(0, 1f).SetEase(Ease.Flash);
       }
       
-      yield return new WaitForSeconds(10);
+      yield return new WaitForSeconds(5);
 
       SceneManager.LoadScene("MenuScene");
     }
