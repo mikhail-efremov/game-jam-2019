@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
@@ -80,7 +79,7 @@ namespace UnityTemplateProjects.Maps
         bom.Explode();
       }
 
-      var players = GameObject.FindObjectsOfType<Player>();
+      var players = FindObjectsOfType<Player>();
       foreach (var player in players)
       {
         player.BlockMovement();

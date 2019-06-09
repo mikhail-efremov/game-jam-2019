@@ -14,9 +14,13 @@ namespace UnityTemplateProjects.Maps
     private MapTile _mapTile;
     private Player _player;
 
+    private AudioSource _fixingSoundSource;
+    
     public void Init(Player player)
     {
       _player = player;
+      _fixingSoundSource = gameObject.AddComponent<AudioSource>();
+      _fixingSoundSource.clip = Map.Instance.FixingSound;
     }
 
     public bool StartFixing(Side side)
@@ -48,6 +52,8 @@ namespace UnityTemplateProjects.Maps
       IsFixing = true;
       if(_mapTile != null)
         _mapTile.StartFixing();
+      
+      _fixingSoundSource.Play();
       yield return new WaitForSeconds(Map.Instance.FixTime);
 
       Debug.Log("FIXING FINISHED");
@@ -68,6 +74,7 @@ namespace UnityTemplateProjects.Maps
 
     public void StopFixing()
     {
+      _fixingSoundSource.Stop();
       // stop animation
       if (IsFixing)
       {

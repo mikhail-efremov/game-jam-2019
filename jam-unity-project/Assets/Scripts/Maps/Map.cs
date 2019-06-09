@@ -27,6 +27,8 @@ namespace UnityTemplateProjects.Maps
         public AudioClip MainGameAudio;
         public AudioClip FastMainGameAudio;
 
+        public AudioClip FixingSound;
+
         public List<MapTile> BySide(Side side)
         {
             if (side == Side.Left)

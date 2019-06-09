@@ -1078,6 +1078,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 35ccd9620f8e6664292807eb307f56a5, type: 3}
   MainGameAudio: {fileID: 8300000, guid: 6b339a24848e3ce4c9b2c9dbb013a20b, type: 3}
   FastMainGameAudio: {fileID: 8300000, guid: ce29e5d30835b5042b6ab4fa28ab2ae2, type: 3}
+  FixingSound: {fileID: 8300000, guid: 1896c5749f86217458a65bc7faaf3c58, type: 3}
 --- !u!65 &7758976435304599282
 BoxCollider:
   m_ObjectHideFlags: 0
