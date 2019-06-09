@@ -32,7 +32,12 @@ namespace UnityTemplateProjects.Maps
       if (Helper.Distance(nearestBomb.transform.position, _player.transform.position) > Map.Instance.PickUpDistance)
         return;
 
-      _bomb = nearestBomb.GetComponent<Bomb>();
+      var component = nearestBomb.GetComponent<Bomb>();
+
+      if (!component.IsInteractable)
+        return;
+
+      _bomb = component;
       _bomb.Exploded += BombOnExploded;
       IsHolding = true;
       _player.BlockMovement();

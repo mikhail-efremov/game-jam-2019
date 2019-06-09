@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityTemplateProjects.Maps;
 using Random = UnityEngine.Random;
@@ -36,6 +37,12 @@ namespace UnityTemplateProjects
       _rightSideHealth = MaxSideHealth;
 
       EvilMan = FindObjectOfType<EvilMan>();
+      
+    }
+
+    private void Start()
+    {
+      MusicMaster.Instance.PlayMainGameMusic();
     }
 
     private void Update()
@@ -95,8 +102,13 @@ namespace UnityTemplateProjects
           if (action.BompTimeout > 0)
             bomb.GetComponent<Bomb>().Timeout = action.BompTimeout;
           var pos = tile.transform.position;
-          pos.y += 1;
+          pos.y += 5;
           bomb.transform.position = pos;
+
+          bomb.transform.DOMoveY(1f, 0.5f)
+            .SetEase(Ease.OutFlash)
+            .OnStart(() => { bomb.GetComponent<Bomb>().IsInteractable = false; })
+            .OnComplete(() => { bomb.GetComponent<Bomb>().IsInteractable = true; });
           break;
         }
         case TimeBasedActionType.Split:

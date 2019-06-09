@@ -26,6 +26,7 @@ namespace UnityTemplateProjects.Maps
         private AudioSource _tickingAudioSource;
 
         public event Action Exploded;
+        public bool IsInteractable = true;
 
         public void Awake()
         {

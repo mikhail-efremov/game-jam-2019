@@ -20,9 +20,11 @@ namespace UnityTemplateProjects.Maps
         public AudioClip BombThrowAudio;
         public AudioClip BombDropAudio;
         public AudioClip PickupAudio;
+        public AudioClip MainMenuAudio;
         public List<AudioClip> StepsAudio;
 
         public static Map Instance;
+        public AudioClip MainGameAudio;
 
         public List<MapTile> BySide(Side side)
         {
