@@ -20,7 +20,7 @@ namespace UnityTemplateProjects.Maps
     public GameObject Player1;
     public GameObject Player2;
     
-    private Vector3 _bombTarget = new Vector3(-1.2f, 7.11f, -5.04f);
+    private Vector3 _bombTarget = new Vector3(-1.2f, 7.49f, -5.04f);
 
     private AudioSource _audioSource;
 

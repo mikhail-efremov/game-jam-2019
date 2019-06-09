@@ -43,14 +43,18 @@ namespace UnityTemplateProjects.Maps
       var slow = transform.DOScale(1.1f, .3f).SetLoops(-1, LoopType.Yoyo);
       yield return new WaitForSeconds(Timeout / 3.33f);
       slow.Kill();
+      transform.localScale = Vector3.one;
+      
       var moderate = transform.DOScale(1.3f, .2f).SetLoops(-1, LoopType.Yoyo);
       yield return new WaitForSeconds(Timeout / 3.33f);
       moderate.Kill();
+      transform.localScale = Vector3.one;
       var fast = transform.DOScale(1.5f, .1f).SetLoops(-1, LoopType.Yoyo);
 
       _tickingAudioSource.Play();
       yield return new WaitForSeconds(Timeout / 3.33f);
       fast.Kill();
+      transform.localScale = Vector3.one;
       _tickingAudioSource.Stop();
 
       while (!CanExplode)
