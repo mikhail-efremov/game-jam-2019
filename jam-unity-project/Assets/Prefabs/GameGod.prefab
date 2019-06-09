@@ -220,5 +220,5 @@ MonoBehaviour:
     Side: 2
     Seccond: 85
     BompTimeout: 0
-  MaxSideHealth: 10
+  MaxSideHealth: 5
   EvilMan: {fileID: 0}
