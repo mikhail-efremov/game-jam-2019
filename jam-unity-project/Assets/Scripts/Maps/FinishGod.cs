@@ -69,10 +69,23 @@ namespace UnityTemplateProjects.Maps
         yield return new WaitForSeconds(5);
         
         RightFinish.GetComponentInChildren<ParticleSystem>().Stop();
-        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 22, 6);
+        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 22, 2);
 
         //LeftLose.transform.DOScale(new Vector3(1.1f,1.1f,1), )
       }
+
+      var allBoms = FindObjectsOfType<Bomb>();
+      foreach (var bom in allBoms)
+      {
+        bom.Explode();
+      }
+
+      var players = GameObject.FindObjectsOfType<Player>();
+      foreach (var player in players)
+      {
+        player.BlockMovement();
+      }
+      
       
       RightLose.GetComponent<SpriteRenderer>().DOFade(0, 1f).SetEase(Ease.Flash);
       LeftLose.GetComponent<SpriteRenderer>().DOFade(0, 1f).SetEase(Ease.Flash);
