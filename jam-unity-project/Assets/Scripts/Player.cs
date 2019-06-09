@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using GamepadInput;
 using UnityEngine;
@@ -51,6 +52,8 @@ namespace UnityTemplateProjects
     [SerializeField] public PlayerIndex _playerIndex;
 
     private AudioSource _stepsAudioSource;
+
+    private IEnumerator _fixRoutine;
 
     public void Init(Side side, PlayerRole role)
     {
@@ -112,7 +115,13 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        _fixer.StartFixing(Side);
+        if (_fixRoutine != null)
+          StopCoroutine(_fixRoutine);
+        _fixRoutine = null;
+
+        var routine = FixRoutine();
+        _fixRoutine = routine;
+        StartCoroutine(_fixRoutine);
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
@@ -122,10 +131,11 @@ namespace UnityTemplateProjects
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
         _fight.Hold();
+        _animator.SetBool("PickUP", true);
       }
       else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
-        _fight.Throw();
+        StartCoroutine(ThrowRoutine());
       }
 
       if (!CanControll)
@@ -166,6 +176,28 @@ namespace UnityTemplateProjects
 
       var rot = transform.rotation;
       rot.eulerAngles = Vector3.zero;
+    }
+
+    private IEnumerator ThrowRoutine()
+    {
+      if (!_fight.Throw())
+        yield break;
+      
+      _animator.SetBool("PickUP", false);
+      yield return new WaitForSeconds(.1f);
+      _animator.SetBool("Throw", true);
+            
+      yield return new WaitForSeconds(.5f);
+      _animator.SetBool("Throw", false);
+    }
+
+    private IEnumerator FixRoutine()
+    {
+      _animator.SetBool("Fix", true);
+      yield return new WaitForSeconds(.1f);
+      _fixer.StartFixing(Side);
+      yield return new WaitForSeconds(1f);
+      _animator.SetBool("Fix", false);
     }
 
     private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =

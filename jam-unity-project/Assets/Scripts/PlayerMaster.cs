@@ -21,7 +21,7 @@ public class PlayerMaster : MonoBehaviour
 
   public AudioClip SplitAudio;
   public AudioClip GetTogetherAudio;
-
+  
   private void Awake()
   {
     BigPlayer.Init(Side, PlayerRole.Big);

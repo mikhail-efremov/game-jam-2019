@@ -30,7 +30,7 @@ public class EvilMan : MonoBehaviour
   {
     yield return new WaitForSeconds(.1f);
     
-    Debug.LogError("call action");
+//    Debug.LogError("call action");
     
     _animator.SetBool("Reset", false);
     _animator.SetBool("Idle", false);    
@@ -38,14 +38,14 @@ public class EvilMan : MonoBehaviour
     
     yield return new WaitForSeconds(1);
     
-    Debug.LogError("end");
+//    Debug.LogError("end");
     
     _animator.SetBool("ActionLeft", false);    
     _animator.SetBool("End", true);
     
     yield return new WaitForSeconds(2f);
     
-    Debug.LogError("reset");
+//    Debug.LogError("reset");
     
     _animator.SetBool("End", false);
     _animator.SetBool("Reset", true);
