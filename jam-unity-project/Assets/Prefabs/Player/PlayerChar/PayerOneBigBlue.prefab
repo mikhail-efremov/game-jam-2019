@@ -866,7 +866,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e41a45ee2365c4f4cade11b255f663e9, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.29337773, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1308,7 +1308,7 @@ GameObject:
   - component: {fileID: 3513220422379212293}
   - component: {fileID: 4715626677950096864}
   m_Layer: 0
-  m_Name: PayerOneBig
+  m_Name: PayerOneBigRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
