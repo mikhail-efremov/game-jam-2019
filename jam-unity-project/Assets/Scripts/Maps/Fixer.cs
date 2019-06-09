@@ -19,7 +19,7 @@ namespace UnityTemplateProjects.Maps
       _player = player;
     }
 
-    public void StartFixing(Side side)
+    public bool StartFixing(Side side)
     {
       _mySide = side;
       
@@ -29,14 +29,17 @@ namespace UnityTemplateProjects.Maps
       var closest = broken.OrderBy(m => Helper.Distance(transform.position, m.transform.position)).FirstOrDefault();
 
       if (closest == null)
-        return;
+        return false;
+
+      var dist = Helper.Distance(closest.transform.position, _player.transform.position); 
       
-      if (Helper.Distance(closest.transform.position, _player.transform.position) > Map.Instance.FixDistance)
-        return;
+      if (dist > Map.Instance.FixDistance)
+        return false;
       
       _mapTile = closest;
       // animation?
       StartCoroutine("Fixing");
+      return true;
     }
 
     public IEnumerator Fixing()

@@ -9,7 +9,7 @@ namespace UnityTemplateProjects.Maps
         public GameObject Bomb;
         public float FixTime;
         public float PickUpDistance = 0.3f;
-        public float FixDistance = 0.3f;
+        public float FixDistance = 100f;
 
         public List<MapTile> LeftPlayer;
         public List<MapTile> RightPlayer;
@@ -20,9 +20,11 @@ namespace UnityTemplateProjects.Maps
         public AudioClip BombThrowAudio;
         public AudioClip BombDropAudio;
         public AudioClip PickupAudio;
+        public AudioClip MainMenuAudio;
         public List<AudioClip> StepsAudio;
 
         public static Map Instance;
+        public AudioClip MainGameAudio;
 
         public List<MapTile> BySide(Side side)
         {

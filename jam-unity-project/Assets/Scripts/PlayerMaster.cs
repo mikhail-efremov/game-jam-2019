@@ -21,7 +21,7 @@ public class PlayerMaster : MonoBehaviour
 
   public AudioClip SplitAudio;
   public AudioClip GetTogetherAudio;
-
+  
   private void Awake()
   {
     BigPlayer.Init(Side, PlayerRole.Big);
@@ -50,7 +50,6 @@ public class PlayerMaster : MonoBehaviour
 
   public IEnumerator SplitCo()
   {
-    BigPlayer.BlockMovement();
     BigPlayer.gameObject.SetActive(false);
 
     var splitEffect = Instantiate(SplitEffect, BigPlayer.transform.position, Quaternion.identity);
@@ -111,8 +110,9 @@ public class PlayerMaster : MonoBehaviour
     Destroy(fixPlayerEndEffect);
     Destroy(fightPlayerEndEffect);
     Destroy(splitEffect);
-
-    BigPlayer.ReleaseMovement();
+    
+    FixPlayer.ReleaseMovement();
+    FightPlayer.ReleaseMovement();
 
     Destroy(splitAudioSource);
   }

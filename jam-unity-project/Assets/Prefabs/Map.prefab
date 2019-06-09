@@ -1068,6 +1068,7 @@ MonoBehaviour:
   BombThrowAudio: {fileID: 8300000, guid: 518ecdf54416c0c4da9372cd4458122d, type: 3}
   BombDropAudio: {fileID: 8300000, guid: 518058e87eb0fa34bb46ccb5d349616f, type: 3}
   PickupAudio: {fileID: 8300000, guid: 58aa118876274494da04c2ab43965682, type: 3}
+  MainMenuAudio: {fileID: 8300000, guid: ea1067de069a640418c16d81aad9a25c, type: 3}
   StepsAudio:
   - {fileID: 8300000, guid: 35ccd9620f8e6664292807eb307f56a5, type: 3}
   - {fileID: 8300000, guid: 95b62b029fd5c974baed9fb3e75df2b1, type: 3}
@@ -1075,6 +1076,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 89e3833ea79f72f43a174a1cd496d7bc, type: 3}
   - {fileID: 8300000, guid: 35e8b98306abc854891c93710c0bf355, type: 3}
   - {fileID: 8300000, guid: 35ccd9620f8e6664292807eb307f56a5, type: 3}
+  MainGameAudio: {fileID: 8300000, guid: 6b339a24848e3ce4c9b2c9dbb013a20b, type: 3}
 --- !u!65 &7758976435304599282
 BoxCollider:
   m_ObjectHideFlags: 0

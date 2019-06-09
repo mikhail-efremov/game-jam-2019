@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using GamepadInput;
 using UnityEngine;
@@ -51,6 +52,8 @@ namespace UnityTemplateProjects
     [SerializeField] public PlayerIndex _playerIndex;
 
     private AudioSource _stepsAudioSource;
+
+    private IEnumerator _fixRoutine;
 
     public void Init(Side side, PlayerRole role)
     {
@@ -112,20 +115,34 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        _fixer.StartFixing(Side);
+        if (_fixRoutine != null)
+          return;
+
+        var routine = FixRoutine();
+        _fixRoutine = routine;
+        StartCoroutine(_fixRoutine);
+        
+        BlockMovement();
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
+        if (_fixRoutine != null)
+          StopCoroutine(_fixRoutine);
+        _fixRoutine = null;
+        
         _fixer.StopFixing();
+        
+        ReleaseMovement();
       }
 
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
         _fight.Hold();
+        _animator.SetBool("PickUP", true);
       }
       else if (!action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
-        _fight.Throw();
+        StartCoroutine(ThrowRoutine());
       }
 
       if (!CanControll)
@@ -166,6 +183,35 @@ namespace UnityTemplateProjects
 
       var rot = transform.rotation;
       rot.eulerAngles = Vector3.zero;
+    }
+
+    private IEnumerator ThrowRoutine()
+    {
+      if (!_fight.Throw())
+      {
+        _animator.SetBool("PickUP", false);
+        yield break;
+      }
+
+      _animator.SetBool("PickUP", false);
+      yield return new WaitForSeconds(.1f);
+      _animator.SetBool("Throw", true);
+            
+      yield return new WaitForSeconds(.5f);
+      _animator.SetBool("Throw", false);
+    }
+
+    private IEnumerator FixRoutine()
+    {
+      if (!_fixer.StartFixing(Side))
+        yield break;
+      
+      _animator.SetBool("Fix", true);
+      
+      yield return new WaitForSeconds(1f);
+      _animator.SetBool("Fix", false);
+
+      _fixRoutine = null;
     }
 
     private readonly Dictionary<PlayerIndex, Dictionary<Controll, string>> _controlls =

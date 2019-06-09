@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 495615819207554413}
   - component: {fileID: 495615819207554412}
+  - component: {fileID: 6470140220958564140}
   m_Layer: 0
   m_Name: GameGod
   m_TagString: Untagged
@@ -45,16 +46,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsGameOver: 0
   Actions:
-  - Name: 4 decay
-    Type: 3
+  - Name: 4 bomb
+    Type: 0
     Side: 0
     Seccond: 4
-    BompTimeout: 0
-  - Name: 8 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 8 bomb
+    Type: 0
     Side: 1
     Seccond: 8
-    BompTimeout: 0
+    BompTimeout: 1
   - Name: 13 bomb
     Type: 0
     Side: 2
@@ -125,26 +126,26 @@ MonoBehaviour:
     Side: 1
     Seccond: 38
     BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+  - Name: 42 bomb
+    Type: 0
     Side: 0
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 0
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 1
     Seccond: 42
-    BompTimeout: 0
-  - Name: 42 decay
-    Type: 3
+    BompTimeout: 1
+  - Name: 42 bomb
+    Type: 0
     Side: 1
     Seccond: 42
-    BompTimeout: 0
+    BompTimeout: 1
   - Name: 50 bomb
     Type: 0
     Side: 0
@@ -222,3 +223,15 @@ MonoBehaviour:
     BompTimeout: 0
   MaxSideHealth: 5
   EvilMan: {fileID: 0}
+--- !u!114 &6470140220958564140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495615819207554415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8311d40f54a451e99dc1545f2d3f3ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
