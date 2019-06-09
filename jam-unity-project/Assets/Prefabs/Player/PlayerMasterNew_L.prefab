@@ -53,7 +53,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: cc699bcfe03d64779b1539e1e54d6afc, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
 --- !u!114 &2603406516683672215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_targetDirection: {fileID: 0}
   m_layerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 512
   m_textureAlignment: 0
   m_updateFunction: 0
   m_shadowShader: {fileID: 2100000, guid: 62181e6bf23cf416aa2d24041051c30f, type: 2}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 1123987772451477039}
   - component: {fileID: 1123987772451477037}
   - component: {fileID: 1123987772451477036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987772631281110}
   - component: {fileID: 1123987772631281111}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987772682575083}
   - component: {fileID: 1123987772682575080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 1123987772770724092}
   - component: {fileID: 1123987772770724066}
   - component: {fileID: 1123987772770724093}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987772945642103}
   - component: {fileID: 1123987772945642100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 1123987773121190059}
   - component: {fileID: 1123987773121190057}
   - component: {fileID: 1123987773121190056}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987773434818519}
   - component: {fileID: 1123987773434818516}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -865,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987773443390426}
   - component: {fileID: 1123987773443390427}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987773460634080}
   - component: {fileID: 1123987773460634081}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1023,7 +1023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987773473533262}
   - component: {fileID: 1123987773473533263}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Molot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987773522089083}
   - component: {fileID: 1123987773522089080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1182,7 @@ GameObject:
   - component: {fileID: 1123987773549574704}
   - component: {fileID: 1123987773549574710}
   - component: {fileID: 1123987773549574705}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1275,7 @@ GameObject:
   - component: {fileID: 1123987773945662135}
   - component: {fileID: 1123987773945662133}
   - component: {fileID: 1123987773945662132}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,7 +1368,7 @@ GameObject:
   - component: {fileID: 1123987774046671446}
   - component: {fileID: 1123987774046671444}
   - component: {fileID: 1123987774046671447}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RunBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1460,7 +1460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123987774285359924}
   - component: {fileID: 1123987774285359925}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 2671067435012424261}
   - component: {fileID: 2671067434998269701}
   - component: {fileID: 2671067434998185637}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6167,7 +6167,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: cc699bcfe03d64779b1539e1e54d6afc, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
 --- !u!114 &2943586538276381563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6436,7 +6436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7102201450803091180}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Char_Render01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7801,7 +7801,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8467026803833052276}
   - component: {fileID: 7491263525832883356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7895,7 +7895,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744645692617892}
   - component: {fileID: 4815744645692617893}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7975,7 +7975,7 @@ GameObject:
   - component: {fileID: 4815744645948067270}
   - component: {fileID: 4815744645948067268}
   - component: {fileID: 4815744645948067271}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RunBomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8068,7 +8068,7 @@ GameObject:
   - component: {fileID: 4815744646250468647}
   - component: {fileID: 4815744646250468645}
   - component: {fileID: 4815744646250468644}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Throw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8160,7 +8160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744646405475307}
   - component: {fileID: 4815744646405475304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8240,7 +8240,7 @@ GameObject:
   - component: {fileID: 4815744646424274336}
   - component: {fileID: 4815744646424274342}
   - component: {fileID: 4815744646424274337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Fix
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8332,7 +8332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744646444910192}
   - component: {fileID: 4815744646444910193}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8411,7 +8411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744646810480711}
   - component: {fileID: 4815744646810480708}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8490,7 +8490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744646819865674}
   - component: {fileID: 4815744646819865675}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8569,7 +8569,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744647028076007}
   - component: {fileID: 4815744647028076004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8649,7 +8649,7 @@ GameObject:
   - component: {fileID: 4815744647069632315}
   - component: {fileID: 4815744647069632313}
   - component: {fileID: 4815744647069632312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8742,7 +8742,7 @@ GameObject:
   - component: {fileID: 4815744647223048044}
   - component: {fileID: 4815744647223048050}
   - component: {fileID: 4815744647223048045}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8834,7 +8834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744647311049595}
   - component: {fileID: 4815744647311049592}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LegL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8914,7 +8914,7 @@ GameObject:
   - component: {fileID: 4815744647471827391}
   - component: {fileID: 4815744647471827389}
   - component: {fileID: 4815744647471827388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PickUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9004,7 +9004,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4815744647626732102}
   - component: {fileID: 4815744647626732103}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9084,7 +9084,7 @@ GameObject:
   - component: {fileID: 5049874915875245032}
   - component: {fileID: 5049874915890450088}
   - component: {fileID: 5049874915890558728}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmokeRun (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18698,7 +18698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2358568060550103751}
   - component: {fileID: 9215034563076012461}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Molot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18776,7 +18776,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3449146288144615804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Char_Render01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18852,7 +18852,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: cc699bcfe03d64779b1539e1e54d6afc, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 257
 --- !u!114 &1946567021560676892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18989,7 +18989,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4092979132595979236}
   - component: {fileID: 3079216046080369420}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
