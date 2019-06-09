@@ -60,27 +60,22 @@ MonoBehaviour:
     Type: 0
     Side: 1
     Seccond: 8
-    BompTimeout: 1
+    BompTimeout: 4
   - Name: 13 bomb
     Type: 0
     Side: 2
     Seccond: 13
-    BompTimeout: 4
+    BompTimeout: 7
   - Name: 18 bomb
     Type: 0
     Side: 2
     Seccond: 18
-    BompTimeout: 5
+    BompTimeout: 7
   - Name: 18 bomb
     Type: 0
     Side: 2
     Seccond: 18
-    BompTimeout: 3
-  - Name: 18 bomb
-    Type: 0
-    Side: 2
-    Seccond: 18
-    BompTimeout: 5
+    BompTimeout: 10
   - Name: 23 split
     Type: 1
     Side: 0
@@ -105,11 +100,6 @@ MonoBehaviour:
     Type: 0
     Side: 0
     Seccond: 31
-    BompTimeout: 6
-  - Name: 31 bomb
-    Type: 0
-    Side: 0
-    Seccond: 31
     BompTimeout: 2
   - Name: 31 bomb
     Type: 0
@@ -131,11 +121,6 @@ MonoBehaviour:
     Side: 1
     Seccond: 38
     BompTimeout: 0
-  - Name: 42 bomb
-    Type: 0
-    Side: 0
-    Seccond: 42
-    BompTimeout: 1
   - Name: 42 bomb
     Type: 0
     Side: 0
@@ -190,11 +175,6 @@ MonoBehaviour:
     Type: 0
     Side: 1
     Seccond: 81
-    BompTimeout: 0
-  - Name: 85 bomb
-    Type: 0
-    Side: 2
-    Seccond: 85
     BompTimeout: 0
   - Name: 85 bomb
     Type: 0

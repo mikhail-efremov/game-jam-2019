@@ -51,7 +51,7 @@ namespace UnityTemplateProjects
       if (_lastSeccond == seccond)
         return;
 
-      if (_lastSeccond > 0)
+      if (_lastSeccond > 60)
       {
         StartCoroutine(EvilMan.StartAlwaysSmile());
       }
