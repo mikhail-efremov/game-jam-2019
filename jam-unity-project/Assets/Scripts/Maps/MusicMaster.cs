@@ -54,5 +54,11 @@ namespace UnityTemplateProjects.Maps
       
       DOTween.To(() => _mainGameMusic.volume, x => _mainGameMusic.volume = x, 1, 6);
     }
+
+    public void StopAllMusic()
+    {
+      DOTween.To(() => _menuAudioSource.volume, x => _menuAudioSource.volume = x, 0, 2f);
+      DOTween.To(() => _mainGameMusic.volume, x => _mainGameMusic.volume = x, 0, 2f);
+    }
   }
 }
