@@ -47,6 +47,7 @@ namespace UnityTemplateProjects
 
     private void Update()
     {
+      return;
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
       if (_lastSeccond == seccond)
         return;
