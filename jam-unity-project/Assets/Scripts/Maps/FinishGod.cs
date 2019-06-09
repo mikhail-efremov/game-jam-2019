@@ -68,7 +68,7 @@ namespace UnityTemplateProjects.Maps
         yield return new WaitForSeconds(5);
         
         RightFinish.GetComponentInChildren<ParticleSystem>().Stop();
-        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 22, 2);
+        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 0, 2);
 
         //LeftLose.transform.DOScale(new Vector3(1.1f,1.1f,1), )
       }
@@ -103,7 +103,7 @@ namespace UnityTemplateProjects.Maps
         renderer2.DOFade(0, 1f).SetEase(Ease.Flash);
       }
       
-      yield return new WaitForSeconds(5);
+      yield return new WaitForSeconds(1);
 
       SceneManager.LoadScene("MenuScene");
     }
