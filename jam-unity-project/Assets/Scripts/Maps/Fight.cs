@@ -53,10 +53,10 @@ namespace UnityTemplateProjects.Maps
       IsHolding = false;
     }
 
-    public void Throw()
+    public bool Throw()
     {
       if (!IsHolding)
-        return;
+        return false;
 
       var splitAudioSource = _player.gameObject.AddComponent<AudioSource>();
       splitAudioSource.playOnAwake = false;
@@ -70,7 +70,7 @@ namespace UnityTemplateProjects.Maps
       var targetTilesNotDamaged = targetTiles.Where(t => !t.IsBroken).ToList();
 
       if (!targetTilesNotDamaged.Any())
-        return;
+        return false;
 
       var rndNumber = Random.Range(0, targetTilesNotDamaged.Count);
 
@@ -79,6 +79,9 @@ namespace UnityTemplateProjects.Maps
       var targetPos = selectedTile.transform.position;
       targetPos.y += 1;
 
+      if (_bomb == null)
+        return false;
+      
       _bomb.transform.DOJump(targetPos, 4f, 1, 0.74f)
         .SetEase(Ease.OutCirc)
         .OnStart(() => { _bomb.CanExplode = false; })
@@ -89,6 +92,8 @@ namespace UnityTemplateProjects.Maps
           splitAudioSource2.clip = Map.Instance.BombDropAudio;
           splitAudioSource2.Play();
         });
+
+      return true;
     }
   }
 }
