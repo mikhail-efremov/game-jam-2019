@@ -84,7 +84,6 @@ namespace UnityTemplateProjects.Maps
         Destroy(PressGo);
       });
 
-      
       LogoGo.transform.DOPause();
       LogoGo.transform.GetComponent<SpriteRenderer>().DOFade(0f, 1f).SetEase(Ease.Flash)
         .OnComplete(() =>
@@ -94,14 +93,7 @@ namespace UnityTemplateProjects.Maps
       
       yield return new WaitForSeconds(2f);
       RenderSettings.fogColor = Color.black;
-      DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 300, 6)
-        .OnComplete(() =>
-        {
-          RenderSettings.fogColor = Color.black;
-        });
-
-      
-//      DOTween.To(asdasd, value => RenderSettings.fogColor = value,Color.black, 1f);
+      DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 300, 6);
       
       yield return new WaitForSeconds(2f);
       
