@@ -25,6 +25,7 @@ namespace UnityTemplateProjects.Maps
 
         public static Map Instance;
         public AudioClip MainGameAudio;
+        public AudioClip FastMainGameAudio;
 
         public List<MapTile> BySide(Side side)
         {

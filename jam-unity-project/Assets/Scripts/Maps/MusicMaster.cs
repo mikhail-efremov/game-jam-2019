@@ -8,6 +8,7 @@ namespace UnityTemplateProjects.Maps
     public static MusicMaster Instance;
     private AudioSource _menuAudioSource;
     private AudioSource _mainGameMusic;
+    private int _lastSeccond;
 
     public void Start()
     {
@@ -20,6 +21,20 @@ namespace UnityTemplateProjects.Maps
       _mainGameMusic.loop = true;
       _mainGameMusic.clip = Map.Instance.MainGameAudio;
       _mainGameMusic.playOnAwake = false;
+    }
+
+    private void Update()
+    {
+      var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+      if (_lastSeccond == seccond)
+        return;
+
+      if (_lastSeccond == 30)
+      {
+        _mainGameMusic.Stop();
+        _mainGameMusic.clip = Map.Instance.FastMainGameAudio;
+        _mainGameMusic.Play();
+      }
     }
 
     public void PlayMenuMusic()
