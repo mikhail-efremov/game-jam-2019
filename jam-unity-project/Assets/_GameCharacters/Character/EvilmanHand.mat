@@ -10,7 +10,7 @@ Material:
   m_Name: EvilmanHand
   m_Shader: {fileID: 4800000, guid: ada7bed636465f14fa73acdb797d1c97, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _TextureSample0:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f262a3e605a3c3747a0c9a6f49d4cac4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -28,6 +28,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _TintPower: 0
+    - _AddRemapPower: 0.3
+    - _TintPower: 2
     - __dirty: 0
-    m_Colors: []
+    m_Colors:
+    - _PowerRemap: {r: 0, g: 1, b: -1, a: 1}
