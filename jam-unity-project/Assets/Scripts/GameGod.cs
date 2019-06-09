@@ -50,7 +50,12 @@ namespace UnityTemplateProjects
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
       if (_lastSeccond == seccond)
         return;
-      
+
+      if (_lastSeccond > 0)
+      {
+        StartCoroutine(EvilMan.StartAlwaysSmile());
+      }
+
       _lastSeccond = seccond;
       var actions = Actions.Where(x => x.Seccond == seccond).ToList();
       

@@ -4,6 +4,7 @@ using UnityEngine;
 public class EvilMan : MonoBehaviour
 {
   public Animator _animator;
+  private bool _alwaysSmile;
 
   private IEnumerator _routine;
 
@@ -14,6 +15,9 @@ public class EvilMan : MonoBehaviour
 
   public void Action()
   {
+    if (_alwaysSmile)
+      return;
+    
     if (_routine != null)
     {
       _animator.SetBool("Reset", true);
@@ -28,8 +32,6 @@ public class EvilMan : MonoBehaviour
 
   private IEnumerator DoAction()
   {
-    yield return new WaitForSeconds(.1f);
-    
 //    Debug.LogError("call action");
     
     _animator.SetBool("Reset", false);
@@ -56,5 +58,17 @@ public class EvilMan : MonoBehaviour
     _animator.SetBool("Idle", true);
 
     _routine = null;
+  }
+
+  public IEnumerator StartAlwaysSmile()
+  {
+    if (_alwaysSmile)
+      yield break;
+    
+    if (!_alwaysSmile)
+      _alwaysSmile = true;
+    
+    _animator.SetBool("Idle", false);
+    _animator.SetBool("Smile", true);
   }
 }
