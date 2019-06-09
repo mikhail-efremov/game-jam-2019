@@ -19,7 +19,7 @@ namespace UnityTemplateProjects
       var leftHealth = god.GetHealthBySide(Side.Left);
       var rightHealth = god.GetHealthBySide(Side.Right);
 
-      if (leftHealth == 0 || rightHealth == 0)
+      if (leftHealth <= 0 || rightHealth <= 0)
       {
         god.IsGameOver = true;
         Ui.SetActive(true);

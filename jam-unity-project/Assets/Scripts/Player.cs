@@ -119,14 +119,12 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        if (_fixRoutine != null)
-          return;
-
-        var routine = FixRoutine();
-        _fixRoutine = routine;
-        StartCoroutine(_fixRoutine);
-        
-        BlockMovement();
+        if (_fixRoutine == null)
+        {
+          var routine = FixRoutine();
+          _fixRoutine = routine;
+          StartCoroutine(_fixRoutine);
+        }
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
@@ -152,6 +150,9 @@ namespace UnityTemplateProjects
         StartCoroutine(ThrowRoutine());
       }
       
+      if (!action)
+        ReleaseMovement();
+      
       if (!CanControll)
         return;
 
@@ -163,6 +164,7 @@ namespace UnityTemplateProjects
         {
           _isRun = true;
           _animator.SetBool("Run", true);
+          _animator.SetBool("Fix", false);
           IsRun = true;
         }
         
@@ -226,8 +228,11 @@ namespace UnityTemplateProjects
     private IEnumerator FixRoutine()
     {
       if (!_fixer.StartFixing(Side))
+      {
         yield break;
-  
+      }
+
+      BlockMovement();
       _animator.SetBool("Run", false);
       _animator.SetBool("Fix", true);
       
