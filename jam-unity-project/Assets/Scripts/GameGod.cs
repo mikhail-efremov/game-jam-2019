@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityTemplateProjects.Maps;
 using Random = UnityEngine.Random;
 
@@ -47,6 +48,10 @@ namespace UnityTemplateProjects
 
     private void Update()
     {
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+        SceneManager.LoadScene("MenuScene");
+      }
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
       if (_lastSeccond == seccond)
         return;
