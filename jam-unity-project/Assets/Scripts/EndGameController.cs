@@ -5,12 +5,6 @@ namespace UnityTemplateProjects
 {
   public class EndGameController : MonoBehaviour
   {
-    public GameObject Ui;
-
-    private void Awake()
-    {
-      Ui.SetActive(false);
-    }
 
     private void Update()
     {
@@ -22,7 +16,6 @@ namespace UnityTemplateProjects
       if (leftHealth <= 0 || rightHealth <= 0)
       {
         god.IsGameOver = true;
-        Ui.SetActive(true);
       }
 
       if (god.IsGameOver && Input.GetKey("space"))
