@@ -51,7 +51,6 @@ namespace UnityTemplateProjects.Maps
 
         yield return new WaitForSeconds(5);
         
-        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 22, 6);
 
         LeftFinish.GetComponentInChildren<ParticleSystem>().Stop();
       }
@@ -68,10 +67,11 @@ namespace UnityTemplateProjects.Maps
         yield return new WaitForSeconds(5);
         
         RightFinish.GetComponentInChildren<ParticleSystem>().Stop();
-        DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 0, 2);
 
         //LeftLose.transform.DOScale(new Vector3(1.1f,1.1f,1), )
       }
+
+      DOTween.To(() => RenderSettings.fogEndDistance, x => RenderSettings.fogEndDistance = x, 0, 2);
 
       var allBoms = FindObjectsOfType<Bomb>();
       foreach (var bom in allBoms)
@@ -103,7 +103,7 @@ namespace UnityTemplateProjects.Maps
         renderer2.DOFade(0, 1f).SetEase(Ease.Flash);
       }
       
-      yield return new WaitForSeconds(1);
+      yield return new WaitForSeconds(2);
 
       SceneManager.LoadScene("MenuScene");
     }
