@@ -8,7 +8,7 @@ namespace UnityTemplateProjects.Maps
     public static MusicMaster Instance;
     private AudioSource _menuAudioSource;
     private AudioSource _mainGameMusic;
-    private int _lastSeccond;
+    private int _lastSeccond = -1;
 
     public void Start()
     {
@@ -26,9 +26,11 @@ namespace UnityTemplateProjects.Maps
     private void Update()
     {
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+      
       if (_lastSeccond == seccond)
         return;
 
+      _lastSeccond = seccond;
       if (_lastSeccond == 30)
       {
         _mainGameMusic.Stop();
@@ -52,7 +54,7 @@ namespace UnityTemplateProjects.Maps
       _mainGameMusic.volume = 0;
       _mainGameMusic.Play();
       
-      DOTween.To(() => _mainGameMusic.volume, x => _mainGameMusic.volume = x, 1, 6);
+      DOTween.To(() => _mainGameMusic.volume, x => _mainGameMusic.volume = x, .7f, 6);
     }
 
     public void StopAllMusic()
