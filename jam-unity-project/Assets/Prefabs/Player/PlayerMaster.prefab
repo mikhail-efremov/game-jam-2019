@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005883843}
   m_LocalRotation: {x: 0.33131406, y: -0.23992904, z: -0.16326882, w: 0.89777964}
-  m_LocalPosition: {x: -0.00000011920929, y: 0.12600008, z: -0.13400005}
+  m_LocalPosition: {x: 0.16, y: 0.278, z: -0.331}
   m_LocalScale: {x: 0.33333334, y: 0.33333343, z: 0.33333343}
   m_Children: []
   m_Father: {fileID: 5618579916389549318}
@@ -45,7 +45,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.2
-  m_FarClipPlane: 6.03
+  m_FarClipPlane: 3.8
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_testViewClip: 0
   m_textureWidth: 512
   m_textureHeight: 512
-  m_mipLevel: 3
-  m_blurLevel: 0
+  m_mipLevel: 1
+  m_blurLevel: 1
   m_blurSize: 1.79
   m_mipmapBlurSize: 1
   m_singlePassMipmapBlur: 1
@@ -115,7 +115,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 6.03
+  far clip plane: 3.8
   field of view: 60
   orthographic: 1
   orthographic size: 1.2
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_testViewClip: 0
   m_textureWidth: 512
   m_textureHeight: 512
-  m_mipLevel: 3
+  m_mipLevel: 1
   m_blurLevel: 0
   m_blurSize: 1.79
   m_mipmapBlurSize: 1
@@ -822,7 +822,7 @@ MonoBehaviour:
   m_testViewClip: 0
   m_textureWidth: 512
   m_textureHeight: 512
-  m_mipLevel: 3
+  m_mipLevel: 1
   m_blurLevel: 0
   m_blurSize: 1.79
   m_mipmapBlurSize: 1
@@ -1400,7 +1400,7 @@ PrefabInstance:
     - target: {fileID: 5089659056862750013, guid: 68edbd4142d207c45b9547ebcaa7eaf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.406
       objectReference: {fileID: 0}
     - target: {fileID: 5089659056862750013, guid: 68edbd4142d207c45b9547ebcaa7eaf2,
         type: 3}
@@ -1840,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 4586015433612458733, guid: 6741855f1adb9084f8a41f9f0a491a30,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586015433612458733, guid: 6741855f1adb9084f8a41f9f0a491a30,
         type: 3}

@@ -325,7 +325,6 @@ GameObject:
   - component: {fileID: 1999690661621976096}
   - component: {fileID: 1999690661620648960}
   - component: {fileID: 1999690661619683008}
-  - component: {fileID: 1999690661623887872}
   m_Layer: 0
   m_Name: env_house_R
   m_TagString: Untagged
@@ -392,19 +391,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1999690661623887872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999690661621878784}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.732091, y: 9.517833, z: 5.6824665}
-  m_Center: {x: 0, y: 4.7527184, z: 0.00000011920929}
 --- !u!1 &1999690661656079332
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +493,6 @@ GameObject:
   - component: {fileID: 1999690662186127823}
   - component: {fileID: 1999690662186127820}
   - component: {fileID: 1999690662186127821}
-  - component: {fileID: 1999690662186127818}
   m_Layer: 0
   m_Name: env_house_L
   m_TagString: Untagged
@@ -574,19 +559,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &1999690662186127818
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999690662186127819}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.732091, y: 9.517833, z: 5.6824665}
-  m_Center: {x: 0, y: 4.7527184, z: 0.00000011920929}
 --- !u!1 &3728341352604241222
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3728341352604733798
 Transform:
   m_ObjectHideFlags: 0
