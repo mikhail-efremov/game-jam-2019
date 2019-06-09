@@ -11,11 +11,16 @@ namespace UnityTemplateProjects
   {
     private static GameGod _instance;
     public static GameGod Instance => _instance;
+
+    public bool IsGameOver;
         
     public List<TimeBasedAction> Actions = new List<TimeBasedAction>();
 
     public int MaxSideHealth;
 
+    public EvilMan EvilMan;
+
+    private int _lastPreActionSeccond = -1;
     private int _lastSeccond = -1;
 
     private int _leftSideHealth;
@@ -23,22 +28,28 @@ namespace UnityTemplateProjects
        
     private void Awake()
     {
+      IsGameOver = false;
       _instance = this;
       DontDestroyOnLoad(gameObject);
 
       _leftSideHealth = MaxSideHealth;
       _rightSideHealth = MaxSideHealth;
+
+      EvilMan = FindObjectOfType<EvilMan>();
     }
 
     private void Update()
     {
       var seccond = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-      
       if (_lastSeccond == seccond)
         return;
       
       _lastSeccond = seccond;
-      var actions = Actions.Where(x => x.Seccond == seccond);
+      var actions = Actions.Where(x => x.Seccond == seccond).ToList();
+      
+      if (actions.Count > 0)
+        EvilMan.Action();
+        
       foreach (var action in actions)
       {
         ProceedAction(action);
@@ -60,7 +71,7 @@ namespace UnityTemplateProjects
 
     private Side _lastBombSide = Side.Left;
     private Side _lastDecaySide = Side.Right;
-    
+
     private void ProceedAction(TimeBasedAction action)
     {
       switch (action.Type)
@@ -140,6 +151,8 @@ namespace UnityTemplateProjects
   [Serializable]
   public class TimeBasedAction
   {
+    public string Name;
+    
     public TimeBasedActionType Type;
     public Side Side;
     public int Seccond;

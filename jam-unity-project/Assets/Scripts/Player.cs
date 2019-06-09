@@ -43,20 +43,34 @@ namespace UnityTemplateProjects
     private Animator _animator;
 
     public PlayerRole Role;
+    public Side Side;
 
     public bool CanControll = true;
 
     [SerializeField] private float _speed = 5;
     [SerializeField] public PlayerIndex _playerIndex;
 
-    private void Awake()
+    private AudioSource _stepsAudioSource;
+
+    public void Init(Side side, PlayerRole role)
+    {
+      Role = role;
+      Side = side;
+    }
+
+    private void Start()
     {
       _fight = new Fight(this);
       _fixer = gameObject.AddComponent<Fixer>();
       _fixer.Init(this);
 
       _animator = GetComponentInChildren<Animator>();
+
+      _stepsAudioSource = gameObject.AddComponent<AudioSource>();
+      _stepsAudioSource.loop = false;
     }
+
+    private int _prev;
 
     private void FixedUpdate()
     {
@@ -65,9 +79,9 @@ namespace UnityTemplateProjects
 
       var action = false;
 
-      if (Role == PlayerRole.Fix && Input.GetKey("z"))
+      if (Role == PlayerRole.Fix || Input.GetKey("z"))
         action = GamePad.GetButton(GamePad.Button.Back, _gamePadMap[_playerIndex]);
-      if (Role == PlayerRole.Shoot && Input.GetKey("x"))
+      if (Role == PlayerRole.Shoot || Input.GetKey("x"))
         action = GamePad.GetButton(GamePad.Button.Start, _gamePadMap[_playerIndex]);
 
       if (Role == PlayerRole.Big)
@@ -98,13 +112,12 @@ namespace UnityTemplateProjects
 
       if (action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
-        _fixer.StartFixing();
+        _fixer.StartFixing(Side);
       }
       else if (!action && (Role == PlayerRole.Fix || Role == PlayerRole.Big))
       {
         _fixer.StopFixing();
       }
-
 
       if (action && (Role == PlayerRole.Shoot || Role == PlayerRole.Big))
       {
@@ -123,9 +136,24 @@ namespace UnityTemplateProjects
       if (movement != Vector3.zero)
       {
         _animator.SetBool("Run", true);
+        if (!_stepsAudioSource.isPlaying)
+        {
+          var randomNumber = Random.Range(0, Map.Instance.StepsAudio.Count);
+          while (randomNumber == _prev)
+            randomNumber = Random.Range(0, Map.Instance.StepsAudio.Count);
+
+          _prev = randomNumber;
+          var randomClip = Map.Instance.StepsAudio[randomNumber];
+          _stepsAudioSource.clip = randomClip;
+          _stepsAudioSource.volume = 0.3f;
+          _stepsAudioSource.pitch = 1.5f;
+          _stepsAudioSource.Play();
+        }
       }
       else
       {
+        if (_stepsAudioSource.isPlaying)
+          _stepsAudioSource.Stop();
         _animator.SetBool("Run", false);
       }
 

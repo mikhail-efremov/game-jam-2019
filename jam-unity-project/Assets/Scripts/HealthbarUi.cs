@@ -19,6 +19,8 @@ public class HealthbarUi : MonoBehaviour
 
     var cur = GameGod.Instance.GetHealthBySide(Side);    
     var value = (float) cur / max;
+
+    Mathf.Clamp01(value);
     _image.fillAmount = value;
   }
 }
