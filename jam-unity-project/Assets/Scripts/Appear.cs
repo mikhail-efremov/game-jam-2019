@@ -5,13 +5,10 @@ using UnityEngine.UI;
 public class Appear : MonoBehaviour
 {
   public float Timeout;
-  public Image[] Targets;
 
   void Start()
   {
-    foreach (var target in Targets)
-    {
-      target.DOFade(1, Timeout);
+        GetComponent<CanvasGroup>().alpha = 0;
+        GetComponent<CanvasGroup>().DOFade(1, Timeout);
     }
-  }
 }
