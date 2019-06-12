@@ -5,9 +5,11 @@ using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using GamepadInput;
 using UnityEngine;
+using UnityEngine.Experimental.Input;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Object = System.Object;
+using System.Linq;
 
 namespace UnityTemplateProjects.Maps
 {
@@ -67,11 +69,10 @@ namespace UnityTemplateProjects.Maps
       bool isPressed = false;
       while (!isPressed)
       {
-        isPressed = (GamePad.GetButtonDown(GamePad.Button.A, GamePad.Index.Any)
-                     || (GamePad.GetButtonDown(GamePad.Button.Start, GamePad.Index.Any))
-                     || (GamePad.GetButtonDown(GamePad.Button.Back, GamePad.Index.Any))
-                     || Input.GetKeyDown(KeyCode.Space)
-                     || Input.GetKeyDown(KeyCode.Return));
+                var keyboard = InputSystem.GetDevice<Keyboard>();
+                isPressed = Gamepad.all.Count > 0 && Gamepad.all.Any(g => g.aButton.isPressed || g.bButton.isPressed || g.xButton.isPressed || g.yButton.isPressed)
+                            || keyboard.spaceKey.isPressed || keyboard.enterKey.isPressed;
+                    
         yield return null;
       }
       
